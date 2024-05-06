@@ -1,3 +1,5 @@
+import { Home } from './Home';
+
 @Entry
 @ComponentV2
 struct Index {
@@ -20,7 +22,7 @@ struct Index {
   build() {
     Tabs({ barPosition: BarPosition.End }) {
       TabContent() {
-
+        Home()
       }
       .tabBar(this.tabBuilder('首页', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
