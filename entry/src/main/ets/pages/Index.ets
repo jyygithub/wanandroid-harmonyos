@@ -1,5 +1,6 @@
 import { Explore } from './Explore';
 import { Home } from './Home';
+import { Mine } from './Mine';
 
 @Entry
 @ComponentV2
@@ -38,7 +39,7 @@ struct Index {
       .tabBar(this.tabBuilder('教程', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
       TabContent() {
-
+        Mine()
       }
       .tabBar(this.tabBuilder('我的', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
     }
