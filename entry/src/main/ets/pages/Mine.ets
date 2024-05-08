@@ -1,11 +1,13 @@
+import RouterPaths from "../constants/RouterPaths";
+
 @Preview
 @ComponentV2
 export struct Mine {
+  pageInfos: NavPathStack = new NavPathStack();
+
   build() {
 
     NavDestination() {
-
-
       List({ space: 12 }) {
         ListItem() {
           Row({ space: 12 }) {
@@ -71,6 +73,9 @@ export struct Mine {
           .borderRadius(12)
           .backgroundColor(Color.White)
         }
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.About, null)
+        })
       }
       .padding({ left: 16, right: 16 })
       .width('100%')
@@ -79,5 +84,8 @@ export struct Mine {
     }
     .title("我的")
     .backgroundColor("#F8F8F8")
+    .onReady((context: NavDestinationContext) => {
+      this.pageInfos = context.pathStack;
+    })
   }
 }
