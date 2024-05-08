@@ -22,7 +22,7 @@ export struct Explore {
         this.viewModel.fetchArticles(0)
       })
     }
-    .title("首页")
+    .title("探索")
     .width('100%')
     .height('100%')
   }
