@@ -1,3 +1,4 @@
+import { Course } from './Course';
 import { Explore } from './Explore';
 import { Home } from './Home';
 import { Mine } from './Mine';
@@ -34,7 +35,7 @@ struct Index {
       .tabBar(this.tabBuilder('探索', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
       TabContent() {
-
+        Course()
       }
       .tabBar(this.tabBuilder('教程', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
