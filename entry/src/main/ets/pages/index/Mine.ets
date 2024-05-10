@@ -1,4 +1,4 @@
-import RouterPaths from "../constants/RouterPaths";
+import RouterPaths from "../../constants/RouterPaths";
 
 @Preview
 @ComponentV2

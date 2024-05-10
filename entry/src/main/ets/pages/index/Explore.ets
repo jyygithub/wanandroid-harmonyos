@@ -1,6 +1,6 @@
-import Article from "../models/Article";
-import ExploreViewModel from "../viewmodels/ExploreViewModel";
-import { ArticleRow } from "../views/ArticleRow";
+import Article from "../../models/Article";
+import ExploreViewModel from "../../viewmodels/ExploreViewModel";
+import { ArticleRow } from "../../views/ArticleRow";
 
 @Preview
 @ComponentV2

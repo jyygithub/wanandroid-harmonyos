@@ -1,7 +1,7 @@
-import { Course } from './Course';
-import { Explore } from './Explore';
-import { Home } from './Home';
-import { Mine } from './Mine';
+import { Course } from './index/Course';
+import { Explore } from './index/Explore';
+import { Home } from './index/Home';
+import { Mine } from './index/Mine';
 
 @Entry
 @ComponentV2

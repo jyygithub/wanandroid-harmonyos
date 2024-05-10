@@ -1,11 +1,15 @@
-import Article from "../models/Article";
-import HomeViewModel from "../viewmodels/HomeViewModel";
-import { ArticleRow } from "../views/ArticleRow";
+import Article from "../../models/Article";
+import HomeViewModel from "../../viewmodels/HomeViewModel";
+import { ArticleRow } from "../../views/ArticleRow";
 
 @Preview
 @ComponentV2
 export struct Home {
   @Local viewModel: HomeViewModel = new HomeViewModel();
+
+  aboutToAppear(): void {
+    this.viewModel.fetchArticles(0)
+  }
 
   build() {
     NavDestination() {
