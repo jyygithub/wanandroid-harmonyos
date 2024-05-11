@@ -7,6 +7,10 @@ import { ArticleRow } from "../../views/ArticleRow";
 export struct Explore {
   @Local viewModel: ExploreViewModel = new ExploreViewModel();
 
+  aboutToAppear(): void {
+    this.viewModel.fetchArticles(0)
+  }
+
   build() {
     NavDestination() {
       Refresh({ refreshing: this.viewModel.isRefreshing }) {
