@@ -21,6 +21,9 @@ export struct Mine {
           .borderRadius(12)
           .backgroundColor(Color.White)
         }
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.Login, null)
+        })
 
         ListItem() {
           Row({ space: 12 }) {
