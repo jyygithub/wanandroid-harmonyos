@@ -2,7 +2,31 @@
   "color": [
     {
       "name": "start_window_background",
+      "value": "#F8F8F8"
+    },
+    {
+      "name": "brand",
+      "value": "#3291ff"
+    },
+    {
+      "name": "page",
+      "value": "#F2F3F5"
+    },
+    {
+      "name": "row",
       "value": "#FFFFFF"
+    },
+    {
+      "name": "press",
+      "value": "#E6E6E6"
+    },
+    {
+      "name": "text",
+      "value": "#000000"
+    },
+    {
+      "name": "secondary",
+      "value": "#6C6C6C"
     }
   ]
 }
