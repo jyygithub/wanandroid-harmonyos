@@ -21,11 +21,13 @@ export struct Explore {
             }
           })
         }
+        .padding({ left: 16, right: 16 })
       }
       .onRefreshing(() => {
         this.viewModel.fetchArticles(0)
       })
     }
+    .backgroundColor($r('app.color.page'))
     .title("探索")
     .width('100%')
     .height('100%')
