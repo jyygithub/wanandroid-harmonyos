@@ -10,6 +10,7 @@ export struct Course {
     .height('100%')
     .width('100%')
     .title('教程')
+    .backgroundColor($r('app.color.page'))
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
     })
