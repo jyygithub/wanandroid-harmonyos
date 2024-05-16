@@ -9,6 +9,11 @@
       "name": "Login",
       "pageSourceFile": "src/main/ets/pages/user/Login.ets",
       "buildFunction": "LoginBuilder"
+    },
+    {
+      "name": "ShareHistory",
+      "pageSourceFile": "src/main/ets/pages/user/ShareHistory.ets",
+      "buildFunction": "ShareHistoryBuilder"
     }
   ]
 }
