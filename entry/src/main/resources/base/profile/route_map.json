@@ -24,6 +24,11 @@
       "name": "Coins",
       "pageSourceFile": "src/main/ets/pages/user/Coins.ets",
       "buildFunction": "CoinsBuilder"
+    },
+    {
+      "name": "Register",
+      "pageSourceFile": "src/main/ets/pages/user/Register.ets",
+      "buildFunction": "RegisterBuilder"
     }
   ]
 }
