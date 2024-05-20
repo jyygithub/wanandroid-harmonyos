@@ -29,6 +29,11 @@
       "name": "Register",
       "pageSourceFile": "src/main/ets/pages/user/Register.ets",
       "buildFunction": "RegisterBuilder"
+    },
+    {
+      "name": "Article",
+      "pageSourceFile": "src/main/ets/pages/user/Article.ets",
+      "buildFunction": "ArticleBuilder"
     }
   ]
 }
