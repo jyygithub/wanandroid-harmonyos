@@ -7,6 +7,7 @@ import { Mine } from './index/Mine';
 @ComponentV2
 struct Index {
   @Local currentIndex: number = 0;
+  pageInfos: NavPathStack = new NavPathStack();
 
   @Builder
   tabBuilder(title: string, targetIndex: number, selectedImg: Resource, normalImg: Resource) {
@@ -23,29 +24,32 @@ struct Index {
   }
 
   build() {
-    Tabs({ barPosition: BarPosition.End }) {
-      TabContent() {
-        Home()
-      }
-      .tabBar(this.tabBuilder('首页', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+      Navigation(this.pageInfos) {
+        Tabs({ barPosition: BarPosition.End }) {
+          TabContent() {
+            Home()
+          }
+          .tabBar(this.tabBuilder('首页', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
-      TabContent() {
-        Explore()
-      }
-      .tabBar(this.tabBuilder('探索', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+          TabContent() {
+            Explore()
+          }
+          .tabBar(this.tabBuilder('探索', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
-      TabContent() {
-        Course()
-      }
-      .tabBar(this.tabBuilder('教程', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+          TabContent() {
+            Course()
+          }
+          .tabBar(this.tabBuilder('教程', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
-      TabContent() {
-        Mine()
+          TabContent() {
+            Mine({ pageInfos: this.pageInfos })
+          }
+          .tabBar(this.tabBuilder('我的', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        }
+        .barBackgroundColor($r('app.color.page'))
+        .height('100%')
+        .width('100%')
       }
-      .tabBar(this.tabBuilder('我的', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
-    }
-    .height('100%')
-    .width('100%')
-    .barBackgroundColor($r('app.color.page'))
+      .hideTitleBar(true)
   }
 }

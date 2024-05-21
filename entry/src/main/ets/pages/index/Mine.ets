@@ -3,7 +3,7 @@ import RouterPaths from "../../constants/RouterPaths";
 @Preview
 @ComponentV2
 export struct Mine {
-  pageInfos: NavPathStack = new NavPathStack();
+  @Require @Param pageInfos: NavPathStack;
 
   build() {
 
@@ -87,8 +87,5 @@ export struct Mine {
     }
     .title("我的")
     .backgroundColor("#F8F8F8")
-    .onReady((context: NavDestinationContext) => {
-      this.pageInfos = context.pathStack;
-    })
   }
 }

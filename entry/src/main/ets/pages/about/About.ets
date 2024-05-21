@@ -3,7 +3,6 @@ export function AboutBuilder(name: string, param: Object) {
   About()
 }
 
-@Entry
 @ComponentV2
 struct About {
   pageInfos: NavPathStack = new NavPathStack();
