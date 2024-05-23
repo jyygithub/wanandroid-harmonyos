@@ -1,3 +1,4 @@
+import RouterPaths from "../../constants/RouterPaths";
 import LoginViewModel from "../../viewmodels/LoginViewModel";
 
 @Builder
@@ -8,6 +9,7 @@ export function LoginBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 struct Login {
+  pageInfos: NavPathStack = new NavPathStack();
   @Local viewModel: LoginViewModel = new LoginViewModel();
   @Local email: string = ''
   @Local password: string = ''
@@ -29,9 +31,16 @@ struct Login {
               this.email, this.password
             )
           })
+        Button("注册账号").width('100%')
+          .onClick(() => {
+            this.pageInfos.pushPathByName(RouterPaths.Register, null)
+          })
       }
       .padding(16)
     }
     .title("登录")
+    .onReady((context: NavDestinationContext) => {
+      this.pageInfos = context.pathStack;
+    })
   }
 }

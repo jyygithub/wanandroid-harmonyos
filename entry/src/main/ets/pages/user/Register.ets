@@ -8,8 +8,22 @@ export function RegisterBuilder(name: string, param: Object) {
 struct Register {
   build() {
     NavDestination() {
+      Column({ space: 10 }) {
+        TextInput({ placeholder: "邮箱" })
+          .onChange((value) => {
 
+          })
+        TextInput({ placeholder: "密码" })
+          .onChange((value) => {
+
+          })
+        Button("立即注册").width('100%')
+          .onClick(() => {
+
+          })
+      }
+      .padding(16)
     }
-    .title("知识体系")
+    .title("注册")
   }
 }
