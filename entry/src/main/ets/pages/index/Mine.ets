@@ -8,7 +8,7 @@ export struct Mine {
   build() {
 
     NavDestination() {
-      List({ space: 12 }) {
+      List({ space: 1 }) {
         ListItem() {
           Row({ space: 12 }) {
             Image($r('app.media.startIcon'))
@@ -34,7 +34,32 @@ export struct Mine {
           .justifyContent(FlexAlign.Center)
           .width('100%')
           .padding(12)
-          .borderRadius(12)
+          .borderRadius({ topLeft: 12, topRight: 12 })
+          .backgroundColor(Color.White)
+        }.margin({ top: 20 })
+
+        ListItem() {
+          Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.share'))
+              .fontSize(20)
+            Text("我的收藏").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
+          .backgroundColor(Color.White)
+        }
+
+        ListItem() {
+          Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.share'))
+              .fontSize(20)
+            Text("浏览历史").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
+          .borderRadius({ bottomLeft: 12, bottomRight: 12 })
           .backgroundColor(Color.White)
         }
 
@@ -47,9 +72,9 @@ export struct Mine {
           .justifyContent(FlexAlign.Center)
           .width('100%')
           .padding(12)
-          .borderRadius(12)
+          .borderRadius({ topLeft: 12, topRight: 12 })
           .backgroundColor(Color.White)
-        }
+        }.margin({ top: 20 })
 
         ListItem() {
           Row({ space: 12 }) {
@@ -60,9 +85,22 @@ export struct Mine {
           .justifyContent(FlexAlign.Center)
           .width('100%')
           .padding(12)
-          .borderRadius(12)
+          .borderRadius({ bottomLeft: 12, bottomRight: 12 })
           .backgroundColor(Color.White)
         }
+
+        ListItem() {
+          Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.list_bullet_circle'))
+              .fontSize(20)
+            Text("设置").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
+          .borderRadius({ topLeft: 12, topRight: 12 })
+          .backgroundColor(Color.White)
+        }.margin({ top: 20 })
 
         ListItem() {
           Row({ space: 12 }) {
@@ -73,7 +111,7 @@ export struct Mine {
           .justifyContent(FlexAlign.Center)
           .width('100%')
           .padding(12)
-          .borderRadius(12)
+          .borderRadius({ bottomLeft: 12, bottomRight: 12 })
           .backgroundColor(Color.White)
         }
         .onClick(() => {
