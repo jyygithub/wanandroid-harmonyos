@@ -29,6 +29,7 @@ struct About {
     .height('100%')
     .width('100%')
     .title('关于')
+    .backgroundColor($r('app.color.page'))
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
     })

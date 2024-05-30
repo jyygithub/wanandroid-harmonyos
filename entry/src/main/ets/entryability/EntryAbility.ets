@@ -24,6 +24,11 @@ export default class EntryAbility extends UIAbility {
         return;
       }
       hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
+      windowStage.getMainWindowSync().setWindowBackgroundColor('#F2F3F5');
+      let sysBarProps: window.SystemBarProperties = {
+        statusBarColor: '#F2F3F5',
+      };
+      windowStage.getMainWindowSync().setWindowSystemBarProperties(sysBarProps);
     });
   }
 

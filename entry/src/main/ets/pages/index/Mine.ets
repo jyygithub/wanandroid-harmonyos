@@ -124,6 +124,6 @@ export struct Mine {
 
     }
     .title("我的")
-    .backgroundColor("#F8F8F8")
+    .backgroundColor($r('app.color.page'))
   }
 }
