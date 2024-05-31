@@ -72,9 +72,25 @@ export struct Mine {
           .justifyContent(FlexAlign.Center)
           .width('100%')
           .padding(12)
+          .borderRadius(12)
+          .backgroundColor(Color.White)
+        }.margin({ top: 20 })
+
+        ListItem() {
+          Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.list_bullet_circle'))
+              .fontSize(20)
+            Text("我的积分").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
           .borderRadius({ topLeft: 12, topRight: 12 })
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.Coins, null)
+        })
 
         ListItem() {
           Row({ space: 12 }) {
@@ -88,6 +104,9 @@ export struct Mine {
           .borderRadius({ bottomLeft: 12, bottomRight: 12 })
           .backgroundColor(Color.White)
         }
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.Coins, null)
+        })
 
         ListItem() {
           Row({ space: 12 }) {
@@ -106,7 +125,7 @@ export struct Mine {
           Row({ space: 12 }) {
             SymbolGlyph($r('sys.symbol.info_circle'))
               .fontSize(20)
-            Text("关于玩Android").layoutWeight(1)
+            Text("关于").layoutWeight(1)
           }
           .justifyContent(FlexAlign.Center)
           .width('100%')
