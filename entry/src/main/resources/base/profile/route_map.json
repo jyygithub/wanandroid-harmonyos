@@ -39,6 +39,11 @@
       "name": "CollectHistory",
       "pageSourceFile": "src/main/ets/pages/user/CollectHistory.ets",
       "buildFunction": "CollectHistoryBuilder"
+    },
+    {
+      "name": "ReadHistory",
+      "pageSourceFile": "src/main/ets/pages/user/ReadHistory.ets",
+      "buildFunction": "ReadHistoryBuilder"
     }
   ]
 }
