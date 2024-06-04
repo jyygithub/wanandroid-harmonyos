@@ -44,6 +44,11 @@
       "name": "ReadHistory",
       "pageSourceFile": "src/main/ets/pages/user/ReadHistory.ets",
       "buildFunction": "ReadHistoryBuilder"
+    },
+    {
+      "name": "Settings",
+      "pageSourceFile": "src/main/ets/pages/about/Settings.ets",
+      "buildFunction": "SettingsBuilder"
     }
   ]
 }
