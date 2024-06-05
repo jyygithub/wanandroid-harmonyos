@@ -8,4 +8,6 @@ export default class RouterPaths {
   static readonly Article = "Article";
   static readonly ReadHistory = "ReadHistory";
   static readonly Settings = "Settings";
+  static readonly CollectHistory = "CollectHistory";
+  static readonly CoinsHistory = "CoinsHistory";
 }

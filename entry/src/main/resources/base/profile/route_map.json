@@ -49,6 +49,11 @@
       "name": "Settings",
       "pageSourceFile": "src/main/ets/pages/about/Settings.ets",
       "buildFunction": "SettingsBuilder"
+    },
+    {
+      "name": "CoinsHistory",
+      "pageSourceFile": "src/main/ets/pages/user/CoinsHistory.ets",
+      "buildFunction": "CoinsHistoryBuilder"
     }
   ]
 }
