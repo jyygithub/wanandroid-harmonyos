@@ -37,6 +37,9 @@ export struct Mine {
           .borderRadius({ topLeft: 12, topRight: 12 })
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.ShareHistory, null)
+        })
 
         ListItem() {
           Row({ space: 12 }) {
@@ -48,7 +51,9 @@ export struct Mine {
           .width('100%')
           .padding(12)
           .backgroundColor(Color.White)
-        }
+        }.onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.CollectHistory, null)
+        })
 
         ListItem() {
           Row({ space: 12 }) {
@@ -61,7 +66,9 @@ export struct Mine {
           .padding(12)
           .borderRadius({ bottomLeft: 12, bottomRight: 12 })
           .backgroundColor(Color.White)
-        }
+        }.onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.ReadHistory, null)
+        })
 
         ListItem() {
           Row({ space: 12 }) {
@@ -75,6 +82,9 @@ export struct Mine {
           .borderRadius(12)
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.Tree, null)
+        })
 
         ListItem() {
           Row({ space: 12 }) {
@@ -89,7 +99,7 @@ export struct Mine {
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.Coins, null)
+          this.pageInfos.pushPathByName(RouterPaths.CoinsHistory, null)
         })
 
         ListItem() {
@@ -120,6 +130,9 @@ export struct Mine {
           .borderRadius({ topLeft: 12, topRight: 12 })
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.Settings, null)
+        })
 
         ListItem() {
           Row({ space: 12 }) {
