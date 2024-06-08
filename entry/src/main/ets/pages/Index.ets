@@ -27,7 +27,7 @@ struct Index {
       Navigation(this.pageInfos) {
         Tabs({ barPosition: BarPosition.End }) {
           TabContent() {
-            Home()
+            Home({ pageInfos: this.pageInfos })
           }
           .tabBar(this.tabBuilder('首页', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
