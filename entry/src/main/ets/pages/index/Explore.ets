@@ -1,3 +1,4 @@
+import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
 import ExploreViewModel from "../../viewmodels/ExploreViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
@@ -6,6 +7,7 @@ import { ArticleRow } from "../../views/ArticleRow";
 @ComponentV2
 export struct Explore {
   @Local viewModel: ExploreViewModel = new ExploreViewModel();
+  @Require @Param pageInfos: NavPathStack;
 
   aboutToAppear(): void {
     this.viewModel.fetchArticles(0)
@@ -19,6 +21,9 @@ export struct Explore {
             ListItem() {
               ArticleRow({ article: item })
             }
+            .onClick(() => {
+              this.pageInfos.pushPathByName(RouterPaths.Article, item)
+            })
           })
         }
         .padding({ left: 16, right: 16 })
