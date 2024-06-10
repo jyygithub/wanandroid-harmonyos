@@ -31,9 +31,9 @@
       "buildFunction": "RegisterBuilder"
     },
     {
-      "name": "Article",
-      "pageSourceFile": "src/main/ets/pages/user/Article.ets",
-      "buildFunction": "ArticleBuilder"
+      "name": "ArticleView",
+      "pageSourceFile": "src/main/ets/pages/user/ArticleView.ets",
+      "buildFunction": "ArticleViewBuilder"
     },
     {
       "name": "CollectHistory",

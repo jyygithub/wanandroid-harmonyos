@@ -22,7 +22,7 @@ export struct Home {
               ArticleRow({ article: item })
             }
             .onClick(() => {
-              this.pageInfos.pushPathByName(RouterPaths.Article, item)
+              this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
             })
           })
         }

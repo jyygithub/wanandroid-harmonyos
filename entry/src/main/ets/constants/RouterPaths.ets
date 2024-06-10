@@ -5,7 +5,7 @@ export default class RouterPaths {
   static readonly Tree = "Tree";
   static readonly Coins = "Coins";
   static readonly Register = "Register";
-  static readonly Article = "Article";
+  static readonly ArticleView = "ArticleView";
   static readonly ReadHistory = "ReadHistory";
   static readonly Settings = "Settings";
   static readonly CollectHistory = "CollectHistory";

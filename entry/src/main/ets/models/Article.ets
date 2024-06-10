@@ -4,4 +4,7 @@ export default class Article {
   niceDate: string | null = null
   author: string | null = null
   shareUser: string | null = null
+
+  constructor() {
+  }
 }
