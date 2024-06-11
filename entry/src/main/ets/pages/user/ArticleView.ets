@@ -1,5 +1,6 @@
 import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
+import { webview } from "@kit.ArkWeb";
 
 @Builder
 export function ArticleViewBuilder(name: string, param: Object) {
@@ -10,12 +11,16 @@ export function ArticleViewBuilder(name: string, param: Object) {
 @ComponentV2
 struct ArticleView {
   pageInfos: NavPathStack = new NavPathStack();
-
-  @Local article : Article = new Article()
+  private webviewController: WebviewController = new webview.WebviewController()
+  @Local article: Article = new Article()
 
   build() {
     NavDestination() {
-
+      Web({
+        src: this.article.link,
+        controller: this.webviewController,
+        renderMode: RenderMode.SYNC_RENDER
+      })
     }
     .title(this.article.title)
     .onReady((context: NavDestinationContext) => {
