@@ -18,8 +18,7 @@ export struct ArticleRow {
         .fontWeight(FontWeight.Bold)
         .width('100%')
     }
-    .padding(10)
-    .backgroundColor($r('app.color.row'))
+    .padding(16)
     .width('100%')
   }
 }

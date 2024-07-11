@@ -16,7 +16,7 @@ export struct Home {
   build() {
     NavDestination() {
       Refresh({ refreshing: this.viewModel.isRefreshing }) {
-        List({ space: 1 }) {
+        List() {
           ForEach(this.viewModel.articles, (item: Article) => {
             ListItem() {
               ArticleRow({ article: item })
@@ -26,7 +26,7 @@ export struct Home {
             })
           })
         }
-        .padding({ left: 16, right: 16 })
+        .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
         this.viewModel.fetchArticles(0)
