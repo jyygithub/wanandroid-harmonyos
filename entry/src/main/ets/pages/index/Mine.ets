@@ -115,7 +115,7 @@ export struct Mine {
           .backgroundColor(Color.White)
         }
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.Coins, null)
+          this.pageInfos.pushPathByName(RouterPaths.CoinsView, null)
         })
 
         ListItem() {
