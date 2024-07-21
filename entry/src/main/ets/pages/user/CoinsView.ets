@@ -9,7 +9,6 @@ export function CoinsViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 struct CoinsView {
-
   @Local viewModel: CoinsViewModel = new CoinsViewModel();
 
   aboutToAppear(): void {
@@ -22,11 +21,11 @@ struct CoinsView {
         List() {
           ForEach(this.viewModel.coins, (item: Coin) => {
             ListItem() {
-              Column() {
+              Row() {
+                Text(`${item.rank}`).fontWeight(FontWeight.Bold).width(50)
                 Text(item.username)
-                Text(`${item.coinCount}`)
-                Text(`${item.rank}`)
-              }
+                Text(`${item.coinCount}`).layoutWeight(1).textAlign(TextAlign.End).fontColor($r('app.color.brand'))
+              }.padding(16)
             }
           })
         }
@@ -37,5 +36,6 @@ struct CoinsView {
       })
     }
     .title("积分排行榜")
+    .backgroundColor($r('app.color.page'))
   }
 }
