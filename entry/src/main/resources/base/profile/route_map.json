@@ -54,6 +54,11 @@
       "name": "CoinsHistory",
       "pageSourceFile": "src/main/ets/pages/user/CoinsHistory.ets",
       "buildFunction": "CoinsHistoryBuilder"
+    },
+    {
+      "name": "SearchView",
+      "pageSourceFile": "src/main/ets/pages/article/SearchView.ets",
+      "buildFunction": "SearchViewBuilder"
     }
   ]
 }

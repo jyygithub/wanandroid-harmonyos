@@ -10,4 +10,5 @@ export default class RouterPaths {
   static readonly Settings = "Settings";
   static readonly CollectHistory = "CollectHistory";
   static readonly CoinsHistory = "CoinsHistory";
+  static readonly SearchView = "SearchView";
 }
