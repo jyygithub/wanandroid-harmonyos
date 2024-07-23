@@ -36,5 +36,12 @@ export struct Home {
     .title("首页")
     .width('100%')
     .height('100%')
+    .menus([{
+      value: '搜索',
+      icon: $r('app.media.app_icon'),
+      action: () => {
+        this.pageInfos.pushPathByName(RouterPaths.SearchView, null)
+      }
+    }])
   }
 }
