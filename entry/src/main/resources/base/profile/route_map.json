@@ -59,6 +59,11 @@
       "name": "SearchView",
       "pageSourceFile": "src/main/ets/pages/article/SearchView.ets",
       "buildFunction": "SearchViewBuilder"
+    },
+    {
+      "name": "ProjectsView",
+      "pageSourceFile": "src/main/ets/pages/explore/ProjectsView.ets",
+      "buildFunction": "ProjectsViewBuilder"
     }
   ]
 }

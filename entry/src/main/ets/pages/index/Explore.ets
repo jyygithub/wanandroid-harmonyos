@@ -3,6 +3,7 @@ import Article from "../../models/Article";
 import ExploreViewModel from "../../viewmodels/ExploreViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
 import { promptAction, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem } from "@kit.ArkUI";
+import { ProjectsView } from "../explore/ProjectsView";
 
 @Preview
 @ComponentV2
@@ -20,7 +21,7 @@ export struct Explore {
         Column() {
           Tabs({ barPosition: BarPosition.Start }) {
             TabContent() {
-              Column().width('100%').height('100%').backgroundColor(Color.Pink)
+              ProjectsView()
             }.tabBar("项目")
 
             TabContent() {
