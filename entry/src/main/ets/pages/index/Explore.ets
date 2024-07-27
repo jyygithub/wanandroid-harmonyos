@@ -2,7 +2,6 @@ import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
 import ExploreViewModel from "../../viewmodels/ExploreViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
-import { promptAction, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem } from "@kit.ArkUI";
 import { ProjectsView } from "../explore/ProjectsView";
 
 @Preview
@@ -21,7 +20,7 @@ export struct Explore {
         Column() {
           Tabs({ barPosition: BarPosition.Start }) {
             TabContent() {
-              ProjectsView()
+              ProjectsView({ pageInfos: this.pageInfos })
             }.tabBar("项目")
 
             TabContent() {

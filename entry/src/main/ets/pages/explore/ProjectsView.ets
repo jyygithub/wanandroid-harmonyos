@@ -1,18 +1,13 @@
 import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
-import HomeViewModel from "../../viewmodels/HomeViewModel";
+import ProjectsViewModel from "../../viewmodels/ProjectsViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
-
-@Builder
-export function ProjectsViewBuilder(name: string, param: Object) {
-  ProjectsView()
-}
 
 @Preview
 @ComponentV2
 export struct ProjectsView {
-  @Local viewModel: HomeViewModel = new HomeViewModel();
-  pageInfos: NavPathStack = new NavPathStack();
+  @Local viewModel: ProjectsViewModel = new ProjectsViewModel();
+  @Require @Param pageInfos: NavPathStack;
 
   aboutToAppear(): void {
     this.viewModel.fetchArticles(0)
@@ -38,7 +33,6 @@ export struct ProjectsView {
       })
     }
     .backgroundColor($r('app.color.page'))
-    .title("项目")
     .width('100%')
     .height('100%')
   }
