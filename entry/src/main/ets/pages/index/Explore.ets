@@ -2,6 +2,7 @@ import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
 import ExploreViewModel from "../../viewmodels/ExploreViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
+import { CirclesView } from "../explore/CirclesView";
 import { ProjectsView } from "../explore/ProjectsView";
 
 @Preview
@@ -24,7 +25,7 @@ export struct Explore {
             }.tabBar("项目")
 
             TabContent() {
-              Column().width('100%').height('100%').backgroundColor(Color.Green)
+              CirclesView({ pageInfos: this.pageInfos })
             }.tabBar("广场")
 
             TabContent() {
