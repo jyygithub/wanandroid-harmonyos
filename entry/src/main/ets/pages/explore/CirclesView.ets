@@ -1,12 +1,12 @@
 import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
-import ProjectsViewModel from "../../viewmodels/ProjectsViewModel";
+import CirclesViewModel from "../../viewmodels/CirclesViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
 
 @Preview
 @ComponentV2
 export struct CirclesView {
-  @Local viewModel: ProjectsViewModel = new ProjectsViewModel();
+  @Local viewModel: CirclesViewModel = new CirclesViewModel();
   @Require @Param pageInfos: NavPathStack;
 
   aboutToAppear(): void {
