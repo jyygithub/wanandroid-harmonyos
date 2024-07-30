@@ -4,6 +4,7 @@ import ExploreViewModel from "../../viewmodels/ExploreViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
 import { CirclesView } from "../explore/CirclesView";
 import { ProjectsView } from "../explore/ProjectsView";
+import { WendasView } from "../explore/WendasView";
 
 @Preview
 @ComponentV2
@@ -29,7 +30,7 @@ export struct Explore {
             }.tabBar("广场")
 
             TabContent() {
-              Column().width('100%').height('100%').backgroundColor(Color.Blue)
+              WendasView({ pageInfos: this.pageInfos })
             }.tabBar("问答")
           }
 
