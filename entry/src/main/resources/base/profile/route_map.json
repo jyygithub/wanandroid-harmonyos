@@ -51,9 +51,9 @@
       "buildFunction": "SettingsBuilder"
     },
     {
-      "name": "CoinsHistory",
-      "pageSourceFile": "src/main/ets/pages/user/CoinsHistory.ets",
-      "buildFunction": "CoinsHistoryBuilder"
+      "name": "CoinsHistoryView",
+      "pageSourceFile": "src/main/ets/pages/user/CoinsHistoryView.ets",
+      "buildFunction": "CoinsHistoryViewBuilder"
     },
     {
       "name": "SearchView",
