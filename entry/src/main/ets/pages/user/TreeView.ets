@@ -1,11 +1,11 @@
 @Builder
-export function TreeBuilder(name: string, param: Object) {
-  Tree()
+export function TreeViewBuilder(name: string, param: Object) {
+  TreeView()
 }
 
 @Preview
 @ComponentV2
-struct Tree {
+struct TreeView {
   build() {
     NavDestination() {
 

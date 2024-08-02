@@ -16,9 +16,9 @@
       "buildFunction": "ShareHistoryBuilder"
     },
     {
-      "name": "Tree",
-      "pageSourceFile": "src/main/ets/pages/user/Tree.ets",
-      "buildFunction": "TreeBuilder"
+      "name": "TreeView",
+      "pageSourceFile": "src/main/ets/pages/user/TreeView.ets",
+      "buildFunction": "TreeViewBuilder"
     },
     {
       "name": "CoinsView",
