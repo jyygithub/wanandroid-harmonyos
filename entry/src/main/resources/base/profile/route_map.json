@@ -11,9 +11,9 @@
       "buildFunction": "LoginBuilder"
     },
     {
-      "name": "ShareHistory",
-      "pageSourceFile": "src/main/ets/pages/user/ShareHistory.ets",
-      "buildFunction": "ShareHistoryBuilder"
+      "name": "ShareHistoryView",
+      "pageSourceFile": "src/main/ets/pages/user/ShareHistoryView.ets",
+      "buildFunction": "ShareHistoryViewBuilder"
     },
     {
       "name": "TreeView",
