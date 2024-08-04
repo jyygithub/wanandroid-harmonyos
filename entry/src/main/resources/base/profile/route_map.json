@@ -26,9 +26,9 @@
       "buildFunction": "CoinsViewBuilder"
     },
     {
-      "name": "Register",
-      "pageSourceFile": "src/main/ets/pages/user/Register.ets",
-      "buildFunction": "RegisterBuilder"
+      "name": "RegisterView",
+      "pageSourceFile": "src/main/ets/pages/user/RegisterView.ets",
+      "buildFunction": "RegisterViewBuilder"
     },
     {
       "name": "ArticleView",

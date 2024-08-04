@@ -1,13 +1,13 @@
 import RegisterViewModel from "../../viewmodels/RegisterViewModel";
 
 @Builder
-export function RegisterBuilder(name: string, param: Object) {
-  Register()
+export function RegisterViewBuilder(name: string, param: Object) {
+  RegisterView()
 }
 
 @Preview
 @ComponentV2
-struct Register {
+struct RegisterView {
   pageInfos: NavPathStack = new NavPathStack();
 
   @Local viewModel: RegisterViewModel = new RegisterViewModel();
