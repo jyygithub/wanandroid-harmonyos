@@ -6,9 +6,9 @@
       "buildFunction": "AboutBuilder"
     },
     {
-      "name": "Login",
-      "pageSourceFile": "src/main/ets/pages/user/Login.ets",
-      "buildFunction": "LoginBuilder"
+      "name": "LoginView",
+      "pageSourceFile": "src/main/ets/pages/user/LoginView.ets",
+      "buildFunction": "LoginViewBuilder"
     },
     {
       "name": "ShareHistoryView",

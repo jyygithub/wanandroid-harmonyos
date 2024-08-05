@@ -2,13 +2,13 @@ import RouterPaths from "../../constants/RouterPaths";
 import LoginViewModel from "../../viewmodels/LoginViewModel";
 
 @Builder
-export function LoginBuilder(name: string, param: Object) {
-  Login()
+export function LoginViewBuilder(name: string, param: Object) {
+  LoginView()
 }
 
 @Preview
 @ComponentV2
-struct Login {
+struct LoginView {
   pageInfos: NavPathStack = new NavPathStack();
   @Local viewModel: LoginViewModel = new LoginViewModel();
   @Local email: string = ''
@@ -33,7 +33,7 @@ struct Login {
           })
         Button("注册账号").width('100%')
           .onClick(() => {
-            this.pageInfos.pushPathByName(RouterPaths.Register, null)
+            this.pageInfos.pushPathByName(RouterPaths.RegisterView, null)
           })
       }
       .padding(16)
