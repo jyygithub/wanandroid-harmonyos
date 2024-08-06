@@ -36,9 +36,9 @@
       "buildFunction": "ArticleViewBuilder"
     },
     {
-      "name": "CollectHistory",
-      "pageSourceFile": "src/main/ets/pages/user/CollectHistory.ets",
-      "buildFunction": "CollectHistoryBuilder"
+      "name": "CollectHistoryView",
+      "pageSourceFile": "src/main/ets/pages/user/CollectHistoryView.ets",
+      "buildFunction": "CollectHistoryViewBuilder"
     },
     {
       "name": "ReadHistory",
