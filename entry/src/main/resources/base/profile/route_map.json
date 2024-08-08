@@ -1,9 +1,9 @@
 {
   "routerMap": [
     {
-      "name": "About",
-      "pageSourceFile": "src/main/ets/pages/about/About.ets",
-      "buildFunction": "AboutBuilder"
+      "name": "AboutView",
+      "pageSourceFile": "src/main/ets/pages/about/AboutView.ets",
+      "buildFunction": "AboutViewBuilder"
     },
     {
       "name": "LoginView",

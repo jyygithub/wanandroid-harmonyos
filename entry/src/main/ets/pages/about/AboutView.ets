@@ -1,11 +1,11 @@
 @Builder
-export function AboutBuilder(name: string, param: Object) {
-  About()
+export function AboutViewBuilder(name: string, param: Object) {
+  AboutView()
 }
 
 @Preview
 @ComponentV2
-struct About {
+struct AboutView {
   pageInfos: NavPathStack = new NavPathStack();
 
   build() {
