@@ -46,9 +46,9 @@
       "buildFunction": "ReadHistoryBuilder"
     },
     {
-      "name": "Settings",
-      "pageSourceFile": "src/main/ets/pages/about/Settings.ets",
-      "buildFunction": "SettingsBuilder"
+      "name": "SettingsView",
+      "pageSourceFile": "src/main/ets/pages/about/SettingsView.ets",
+      "buildFunction": "SettingsViewBuilder"
     },
     {
       "name": "CoinsHistoryView",
