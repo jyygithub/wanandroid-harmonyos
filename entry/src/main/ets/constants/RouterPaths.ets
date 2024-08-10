@@ -6,7 +6,7 @@ export default class RouterPaths {
   static readonly CoinsView = "CoinsView";
   static readonly RegisterView = "RegisterView";
   static readonly ArticleView = "ArticleView";
-  static readonly ReadHistory = "ReadHistory";
+  static readonly ReadHistoryView = "ReadHistoryView";
   static readonly SettingsView = "SettingsView";
   static readonly CollectHistoryView = "CollectHistoryView";
   static readonly CoinsHistoryView = "CoinsHistoryView";

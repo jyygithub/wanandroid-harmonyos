@@ -41,9 +41,9 @@
       "buildFunction": "CollectHistoryViewBuilder"
     },
     {
-      "name": "ReadHistory",
-      "pageSourceFile": "src/main/ets/pages/user/ReadHistory.ets",
-      "buildFunction": "ReadHistoryBuilder"
+      "name": "ReadHistoryView",
+      "pageSourceFile": "src/main/ets/pages/user/ReadHistoryView.ets",
+      "buildFunction": "ReadHistoryViewBuilder"
     },
     {
       "name": "SettingsView",
