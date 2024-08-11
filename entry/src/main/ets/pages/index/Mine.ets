@@ -22,7 +22,7 @@ export struct Mine {
           .backgroundColor(Color.White)
         }
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.Login, null)
+          this.pageInfos.pushPathByName(RouterPaths.LoginView, null)
         })
 
         ListItem() {
@@ -38,7 +38,7 @@ export struct Mine {
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.ShareHistory, null)
+          this.pageInfos.pushPathByName(RouterPaths.ShareHistoryView, null)
         })
 
         ListItem() {
@@ -52,7 +52,7 @@ export struct Mine {
           .padding(12)
           .backgroundColor(Color.White)
         }.onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.CollectHistory, null)
+          this.pageInfos.pushPathByName(RouterPaths.CollectHistoryView, null)
         })
 
         ListItem() {
@@ -67,7 +67,7 @@ export struct Mine {
           .borderRadius({ bottomLeft: 12, bottomRight: 12 })
           .backgroundColor(Color.White)
         }.onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.ReadHistory, null)
+          this.pageInfos.pushPathByName(RouterPaths.ReadHistoryView, null)
         })
 
         ListItem() {
@@ -83,7 +83,7 @@ export struct Mine {
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.Tree, null)
+          this.pageInfos.pushPathByName(RouterPaths.TreeView, null)
         })
 
         ListItem() {
@@ -99,7 +99,7 @@ export struct Mine {
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.CoinsHistory, null)
+          this.pageInfos.pushPathByName(RouterPaths.CoinsHistoryView, null)
         })
 
         ListItem() {
@@ -131,7 +131,7 @@ export struct Mine {
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.Settings, null)
+          this.pageInfos.pushPathByName(RouterPaths.SettingsView, null)
         })
 
         ListItem() {
@@ -147,7 +147,7 @@ export struct Mine {
           .backgroundColor(Color.White)
         }
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.About, null)
+          this.pageInfos.pushPathByName(RouterPaths.AboutView, null)
         })
       }
       .padding({ left: 16, right: 16 })
