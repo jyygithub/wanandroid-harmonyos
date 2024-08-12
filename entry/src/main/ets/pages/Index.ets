@@ -1,7 +1,7 @@
-import { Course } from './index/Course';
-import { Explore } from './index/Explore';
-import { Home } from './index/Home';
-import { Mine } from './index/Mine';
+import { CourseView } from './index/CourseView';
+import { ExploreView } from './index/ExploreView';
+import { HomeView } from './index/HomeView';
+import { MineView } from './index/MineView';
 
 @Entry
 @ComponentV2
@@ -24,32 +24,32 @@ struct Index {
   }
 
   build() {
-      Navigation(this.pageInfos) {
-        Tabs({ barPosition: BarPosition.End }) {
-          TabContent() {
-            Home({ pageInfos: this.pageInfos })
-          }
-          .tabBar(this.tabBuilder('首页', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
-
-          TabContent() {
-            Explore({ pageInfos: this.pageInfos })
-          }
-          .tabBar(this.tabBuilder('探索', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
-
-          TabContent() {
-            Course()
-          }
-          .tabBar(this.tabBuilder('教程', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
-
-          TabContent() {
-            Mine({ pageInfos: this.pageInfos })
-          }
-          .tabBar(this.tabBuilder('我的', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+    Navigation(this.pageInfos) {
+      Tabs({ barPosition: BarPosition.End }) {
+        TabContent() {
+          HomeView({ pageInfos: this.pageInfos })
         }
-        .barBackgroundColor($r('app.color.page'))
-        .height('100%')
-        .width('100%')
+        .tabBar(this.tabBuilder('首页', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+
+        TabContent() {
+          ExploreView({ pageInfos: this.pageInfos })
+        }
+        .tabBar(this.tabBuilder('探索', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+
+        TabContent() {
+          CourseView()
+        }
+        .tabBar(this.tabBuilder('教程', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+
+        TabContent() {
+          MineView({ pageInfos: this.pageInfos })
+        }
+        .tabBar(this.tabBuilder('我的', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
       }
-      .hideTitleBar(true)
+      .barBackgroundColor($r('app.color.page'))
+      .height('100%')
+      .width('100%')
+    }
+    .hideTitleBar(true)
   }
 }

@@ -5,7 +5,7 @@ import { ArticleRow } from "../../views/ArticleRow";
 
 @Preview
 @ComponentV2
-export struct Home {
+export struct HomeView {
   @Local viewModel: HomeViewModel = new HomeViewModel();
   @Require @Param pageInfos: NavPathStack;
 

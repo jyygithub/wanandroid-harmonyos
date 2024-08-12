@@ -2,7 +2,7 @@ import RouterPaths from "../../constants/RouterPaths";
 
 @Preview
 @ComponentV2
-export struct Mine {
+export struct MineView {
   @Require @Param pageInfos: NavPathStack;
 
   build() {

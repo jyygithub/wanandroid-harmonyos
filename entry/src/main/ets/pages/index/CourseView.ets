@@ -1,6 +1,6 @@
 
 @ComponentV2
-export struct Course {
+export struct CourseView {
 
   build() {
     NavDestination() {

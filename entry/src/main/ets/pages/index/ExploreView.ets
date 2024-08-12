@@ -8,7 +8,7 @@ import { WendasView } from "../explore/WendasView";
 
 @Preview
 @ComponentV2
-export struct Explore {
+export struct ExploreView {
   @Local viewModel: ExploreViewModel = new ExploreViewModel();
   @Require @Param pageInfos: NavPathStack;
 
