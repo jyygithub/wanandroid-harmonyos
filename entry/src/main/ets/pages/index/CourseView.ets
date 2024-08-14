@@ -19,6 +19,7 @@ export struct CourseView {
             }.tabBar(item.name)
           })
         }
+        .barMode(BarMode.Scrollable)
       }
     }
     .height('100%')
