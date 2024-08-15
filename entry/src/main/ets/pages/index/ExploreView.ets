@@ -1,5 +1,6 @@
 import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
+import Course from "../../models/Course";
 import ExploreViewModel from "../../viewmodels/ExploreViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
 import { CirclesView } from "../explore/CirclesView";
@@ -14,6 +15,7 @@ export struct ExploreView {
 
   aboutToAppear(): void {
     this.viewModel.fetchArticles(0)
+    this.viewModel.fetchWXMP()
   }
 
   build() {
@@ -32,7 +34,15 @@ export struct ExploreView {
             TabContent() {
               WendasView({ pageInfos: this.pageInfos })
             }.tabBar("问答")
+
+            ForEach(this.viewModel.wxmp, (item: Course) => {
+              TabContent() {
+
+              }.tabBar(item.name)
+            })
+
           }
+          .barMode(BarMode.Scrollable)
 
 
           List() {
