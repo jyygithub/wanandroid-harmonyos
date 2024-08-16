@@ -3,6 +3,7 @@ import Article from "../../models/Article";
 import Course from "../../models/Course";
 import ExploreViewModel from "../../viewmodels/ExploreViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
+import { WxAricleView } from "../article/WxAricleView";
 import { CirclesView } from "../explore/CirclesView";
 import { ProjectsView } from "../explore/ProjectsView";
 import { WendasView } from "../explore/WendasView";
@@ -37,7 +38,7 @@ export struct ExploreView {
 
             ForEach(this.viewModel.wxmp, (item: Course) => {
               TabContent() {
-
+                WxAricleView({ pageInfos: this.pageInfos })
               }.tabBar(item.name)
             })
 
