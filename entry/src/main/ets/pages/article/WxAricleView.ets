@@ -31,7 +31,7 @@ export struct WxAricleView {
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
-        this.viewModel.fetchArticles(0)
+        this.viewModel.fetchArticles(0, this.wxmpID)
       })
     }
     .backgroundColor($r('app.color.page'))
