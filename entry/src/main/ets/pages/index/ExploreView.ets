@@ -38,7 +38,7 @@ export struct ExploreView {
 
             ForEach(this.viewModel.wxmp, (item: Course) => {
               TabContent() {
-                WxAricleView({ pageInfos: this.pageInfos })
+                WxAricleView({ pageInfos: this.pageInfos,wxmpID :item.id  })
               }.tabBar(item.name)
             })
 
