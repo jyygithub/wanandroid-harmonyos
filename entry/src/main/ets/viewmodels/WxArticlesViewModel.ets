@@ -11,7 +11,7 @@ export default class WxArticlesViewModel {
 
   fetchArticles(page: number,id : number) {
     this.isRefreshing = true
-    const getURL = `https://wanandroid.com/wxarticle/list/408/1/json`;
+    const getURL = `https://wanandroid.com/wxarticle/list/${id}/1/json`;
     const session = rcp.createSession();
     session.get(getURL).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
