@@ -17,7 +17,7 @@ export struct CourseView {
         Tabs({ barPosition: BarPosition.Start }) {
           ForEach(this.viewModel.courses, (item: Course) => {
             TabContent() {
-              CourseAricleView({ pageInfos: this.pageInfos,wxmpID :item.id  })
+              CourseAricleView({ pageInfos: this.pageInfos, courseID: item.id })
             }.tabBar(item.name)
           })
         }

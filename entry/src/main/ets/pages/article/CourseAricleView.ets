@@ -1,5 +1,6 @@
 import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
+import CourseArticlesViewModel from "../../viewmodels/CourseArticlesViewModel";
 import ProjectsViewModel from "../../viewmodels/ProjectsViewModel";
 import WxArticlesViewModel from "../../viewmodels/WxArticlesViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
@@ -7,12 +8,12 @@ import { ArticleRow } from "../../views/ArticleRow";
 @Preview
 @ComponentV2
 export struct CourseAricleView {
-  @Local viewModel: WxArticlesViewModel = new WxArticlesViewModel();
+  @Local viewModel: CourseArticlesViewModel = new CourseArticlesViewModel();
   @Require @Param pageInfos: NavPathStack;
-  @Require @Param wxmpID: number;
+  @Require @Param courseID: number;
 
   aboutToAppear(): void {
-    this.viewModel.fetchArticles(0, this.wxmpID)
+    this.viewModel.fetchArticles(0, this.courseID)
   }
 
   build() {
@@ -31,7 +32,7 @@ export struct CourseAricleView {
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
-        this.viewModel.fetchArticles(0, this.wxmpID)
+        this.viewModel.fetchArticles(0, this.courseID)
       })
     }
     .backgroundColor($r('app.color.page'))
