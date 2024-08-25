@@ -1,3 +1,5 @@
+import TreeViewModel from "../../viewmodels/TreeViewModel";
+
 @Builder
 export function TreeViewBuilder(name: string, param: Object) {
   TreeView()
@@ -6,10 +8,20 @@ export function TreeViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 struct TreeView {
+  @Local viewModel: TreeViewModel = new TreeViewModel()
+  pageInfos: NavPathStack = new NavPathStack();
+
+  aboutToAppear(): void {
+    this.viewModel.fetchTree()
+  }
+
   build() {
     NavDestination() {
 
     }
     .title("知识体系")
+    .onReady((context: NavDestinationContext) => {
+      this.pageInfos = context.pathStack;
+    })
   }
 }
