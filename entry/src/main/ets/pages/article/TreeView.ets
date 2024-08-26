@@ -1,3 +1,4 @@
+import Course from "../../models/Course";
 import TreeViewModel from "../../viewmodels/TreeViewModel";
 
 @Builder
@@ -17,7 +18,13 @@ struct TreeView {
 
   build() {
     NavDestination() {
-
+      List() {
+        ForEach(this.viewModel.courses, (item: Course) => {
+          ListItem() {
+            Text(item.name)
+          }
+        })
+      }
     }
     .title("知识体系")
     .onReady((context: NavDestinationContext) => {
