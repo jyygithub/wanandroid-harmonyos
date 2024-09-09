@@ -11,19 +11,33 @@ struct UserView {
   build() {
     NavDestination() {
 
-      Column({ space: 20 }) {
-        Blank()
-        Image($r('app.media.startIcon'))
-          .width(80)
-          .height(80)
-        Text($r('app.string.app_name'))
-          .fontWeight(FontWeight.Bold)
-        Text("当前版本：0.1")
-        Blank()
-        Text('Github开源项目')
-        Blank().height(20)
+      List() {
+        ListItem(){
+          Row() {
+            Text("头像")
+          }
+        }
+        ListItem(){
+          Row() {
+            Text("昵称")
+          }
+        }
+        ListItem(){
+          Row() {
+            Text("邮箱")
+          }
+        }
+        ListItem(){
+          Row() {
+            Text("用户名")
+          }
+        }
+        ListItem(){
+          Row() {
+            Text("账号安全")
+          }
+        }
       }
-      .height('100%')
 
     }
     .height('100%')
