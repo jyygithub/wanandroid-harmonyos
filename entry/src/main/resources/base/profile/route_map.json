@@ -64,6 +64,11 @@
       "name": "UserView",
       "pageSourceFile": "src/main/ets/pages/user/UserView.ets",
       "buildFunction": "UserViewBuilder"
+    },
+    {
+      "name": "SafetyView",
+      "pageSourceFile": "src/main/ets/pages/user/SafetyView.ets",
+      "buildFunction": "SafetyViewBuilder"
     }
   ]
 }
