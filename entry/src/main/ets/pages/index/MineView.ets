@@ -9,6 +9,7 @@ export struct MineView {
 
     NavDestination() {
       List({ space: 1 }) {
+
         ListItem() {
           Row({ space: 12 }) {
             Image($r('app.media.startIcon'))
@@ -24,6 +25,22 @@ export struct MineView {
         .onClick(() => {
           // this.pageInfos.pushPathByName(RouterPaths.LoginView, null)
           this.pageInfos.pushPathByName(RouterPaths.UserView, null)
+        })
+
+        ListItem() {
+          Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.share'))
+              .fontSize(20)
+            Text("我的待办").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
+          .borderRadius(12)
+          .backgroundColor(Color.White)
+        }.margin({ top: 20 })
+        .onClick(() => {
+          // this.pageInfos.pushPathByName(RouterPaths.ShareHistoryView, null)
         })
 
         ListItem() {
