@@ -69,6 +69,11 @@
       "name": "SafetyView",
       "pageSourceFile": "src/main/ets/pages/user/SafetyView.ets",
       "buildFunction": "SafetyViewBuilder"
+    },
+    {
+      "name": "TodoListView",
+      "pageSourceFile": "src/main/ets/pages/todo/TodoListView.ets",
+      "buildFunction": "TodoListViewBuilder"
     }
   ]
 }
