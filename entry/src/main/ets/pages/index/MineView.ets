@@ -40,7 +40,7 @@ export struct MineView {
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
         .onClick(() => {
-          // this.pageInfos.pushPathByName(RouterPaths.ShareHistoryView, null)
+          this.pageInfos.pushPathByName(RouterPaths.TodoListView, null)
         })
 
         ListItem() {
