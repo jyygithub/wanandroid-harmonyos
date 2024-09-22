@@ -74,6 +74,11 @@
       "name": "TodoListView",
       "pageSourceFile": "src/main/ets/pages/todo/TodoListView.ets",
       "buildFunction": "TodoListViewBuilder"
+    },
+    {
+      "name": "AddTodoView",
+      "pageSourceFile": "src/main/ets/pages/todo/AddTodoView.ets",
+      "buildFunction": "AddTodoViewBuilder"
     }
   ]
 }
