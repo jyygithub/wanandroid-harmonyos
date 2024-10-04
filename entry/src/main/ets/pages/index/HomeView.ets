@@ -38,7 +38,7 @@ export struct HomeView {
     .height('100%')
     .menus([{
       value: '搜索',
-      icon: $r('app.media.app_icon'),
+      icon: $r('sys.media.ohos_ic_public_search_filled'),
       action: () => {
         this.pageInfos.pushPathByName(RouterPaths.SearchView, null)
       }
