@@ -10,13 +10,40 @@ struct SettingsView {
     NavDestination() {
       List() {
         ListItem() {
-          Text("深色模式")
-        }
+          Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.share'))
+              .fontSize(20)
+            Text("深色模式").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
+          .borderRadius(12)
+          .backgroundColor(Color.White)
+        }.margin({ top: 20 })
+        .onClick(() => {
+
+        })
 
         ListItem() {
-          Text("多语言")
-        }
+          Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.share'))
+              .fontSize(20)
+            Text("多语言").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
+          .borderRadius(12)
+          .backgroundColor(Color.White)
+        }.margin({ top: 20 })
+        .onClick(() => {
+
+        })
       }
+      .padding({ left: 16, right: 16 })
+      .width('100%')
+      .height('100%')
     }
     .title("设置")
     .backgroundColor($r('app.color.page'))
