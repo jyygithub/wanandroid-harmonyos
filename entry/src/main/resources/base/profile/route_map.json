@@ -79,6 +79,11 @@
       "name": "AddTodoView",
       "pageSourceFile": "src/main/ets/pages/todo/AddTodoView.ets",
       "buildFunction": "AddTodoViewBuilder"
+    },
+    {
+      "name": "ShareArticleView",
+      "pageSourceFile": "src/main/ets/pages/article/ShareArticleView.ets",
+      "buildFunction": "ShareArticleViewBuilder"
     }
   ]
 }

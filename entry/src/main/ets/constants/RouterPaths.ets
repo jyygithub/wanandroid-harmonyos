@@ -15,4 +15,5 @@ export default class RouterPaths {
   static readonly SafetyView = "SafetyView";
   static readonly TodoListView = "TodoListView";
   static readonly AddTodoView = "AddTodoView";
+  static readonly ShareArticleView = "ShareArticleView";
 }
