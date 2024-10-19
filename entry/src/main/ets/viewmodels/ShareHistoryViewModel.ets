@@ -7,7 +7,6 @@ import Todo from '../models/Todo';
 
 @ObservedV2
 export default class ShareHistoryViewModel {
-
   @Trace isRefreshing: boolean = false
 
   fetchList() {
@@ -26,6 +25,17 @@ export default class ShareHistoryViewModel {
     });
   }
 
-  delete() {}
+  delete(id: string) {
+    const getURL = `https://wanandroid.com/lg/user_article/delete/${id}/json`;
+    const session = rcp.createSession();
+    session.post(getURL).then((response) => {
+      console.info(`Response succeeded: ${JSON.stringify(response)}`);
 
+
+    }).catch((err: BusinessError) => {
+      console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
+    }).finally(() => {
+      session.close()
+    });
+  }
 }
