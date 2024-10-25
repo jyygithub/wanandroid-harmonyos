@@ -23,6 +23,31 @@ struct ArticleView {
       })
     }
     .title(this.article.title)
+    .menus([
+      {
+        value: '分享',
+        icon: $r('sys.media.ohos_ic_public_add'),
+        action: () => {
+
+        }
+      },
+      {
+        value: '浏览器打开',
+        icon: $r('sys.media.ohos_ic_public_add'),
+        action: () => {
+
+        },
+
+      },
+      {
+        value: '收藏',
+        icon: $r('sys.media.ohos_ic_public_add'),
+        action: () => {
+
+        },
+
+      }
+    ])
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
       this.article = this.pageInfos.getParamByName(RouterPaths.ArticleView).pop() as Article
