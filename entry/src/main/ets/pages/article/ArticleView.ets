@@ -26,14 +26,14 @@ struct ArticleView {
     .menus([
       {
         value: '分享',
-        icon: $r('sys.media.ohos_ic_public_add'),
+        icon: $r('sys.media.ohos_ic_public_share'),
         action: () => {
 
         }
       },
       {
         value: '浏览器打开',
-        icon: $r('sys.media.ohos_ic_public_add'),
+        icon: $r('sys.media.ohos_ic_public_web'),
         action: () => {
 
         },
@@ -41,7 +41,7 @@ struct ArticleView {
       },
       {
         value: '收藏',
-        icon: $r('sys.media.ohos_ic_public_add'),
+        icon: $r('sys.media.ohos_ic_public_restore'),
         action: () => {
 
         },
