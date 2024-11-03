@@ -140,6 +140,22 @@ export struct MineView {
           Row({ space: 12 }) {
             SymbolGlyph($r('sys.symbol.list_bullet_circle'))
               .fontSize(20)
+            Text("常用工具").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
+          .borderRadius(12)
+          .backgroundColor(Color.White)
+        }.margin({ top: 20 })
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.ToolsView, null)
+        })
+
+        ListItem() {
+          Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.list_bullet_circle'))
+              .fontSize(20)
             Text("设置").layoutWeight(1)
           }
           .justifyContent(FlexAlign.Center)
