@@ -37,6 +37,11 @@ struct Index {
         .tabBar(this.tabBuilder('探索', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
         TabContent() {
+
+        }
+        .tabBar(this.tabBuilder('鸿蒙', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+
+        TabContent() {
           CourseView({ pageInfos: this.pageInfos })
         }
         .tabBar(this.tabBuilder('教程', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
