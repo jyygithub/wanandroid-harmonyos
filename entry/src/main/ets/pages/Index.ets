@@ -34,22 +34,22 @@ struct Index {
         TabContent() {
           ExploreView({ pageInfos: this.pageInfos })
         }
-        .tabBar(this.tabBuilder('探索', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        .tabBar(this.tabBuilder('探索', 1, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
         TabContent() {
 
         }
-        .tabBar(this.tabBuilder('鸿蒙', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        .tabBar(this.tabBuilder('鸿蒙', 2, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
         TabContent() {
           CourseView({ pageInfos: this.pageInfos })
         }
-        .tabBar(this.tabBuilder('教程', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        .tabBar(this.tabBuilder('教程', 3, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
         TabContent() {
           MineView({ pageInfos: this.pageInfos })
         }
-        .tabBar(this.tabBuilder('我的', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        .tabBar(this.tabBuilder('我的', 4, $r('app.media.app_icon'), $r('app.media.app_icon')))
       }
       .barBackgroundColor($r('app.color.page'))
       .height('100%')
