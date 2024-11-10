@@ -17,6 +17,24 @@ export struct ArticleRow {
         .fontSize(14)
         .fontWeight(FontWeight.Bold)
         .width('100%')
+
+      Row({ space: 4 }) {
+        if (this.article.superChapterName) {
+          Text(this.article.superChapterName)
+            .fontSize(12)
+            .backgroundColor($r('app.color.brand'))
+            .fontColor(Color.White)
+            .padding(4)
+        }
+        if (this.article.chapterName) {
+          Text(this.article.chapterName)
+            .fontSize(12)
+            .backgroundColor($r('app.color.brand'))
+            .fontColor(Color.White)
+            .padding(4)
+        }
+        Blank()
+      }.width('100%')
     }
     .padding(16)
     .width('100%')
