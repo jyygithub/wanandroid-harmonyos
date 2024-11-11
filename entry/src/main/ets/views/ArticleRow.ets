@@ -21,15 +21,17 @@ export struct ArticleRow {
       Row({ space: 4 }) {
         if (this.article.superChapterName) {
           Text(this.article.superChapterName)
-            .fontSize(12)
+            .fontSize(10)
             .backgroundColor($r('app.color.brand'))
+            .borderRadius(4)
             .fontColor(Color.White)
             .padding(4)
         }
         if (this.article.chapterName) {
           Text(this.article.chapterName)
-            .fontSize(12)
+            .fontSize(10)
             .backgroundColor($r('app.color.brand'))
+            .borderRadius(4)
             .fontColor(Color.White)
             .padding(4)
         }
