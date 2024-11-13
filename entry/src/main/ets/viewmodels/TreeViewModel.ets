@@ -7,7 +7,8 @@ import Course from '../models/Course';
 
 @ObservedV2
 export default class TreeViewModel {
-  @Trace courses: Array<Course> = []
+  @Trace trees: Array<Course> = []
+  @Trace childTrees: Array<Course> = []
   @Trace isRefreshing: boolean = false
 
   fetchTree() {
@@ -17,7 +18,8 @@ export default class TreeViewModel {
     session.get(getURL).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
       let result = JSON.parse(JSON.stringify(response)) as ApiRepo<Array<Course>>
-      this.courses = result.data ?? []
+      this.trees = result.data ?? []
+      this.childTrees = this.trees[0].children
     }).catch((err: BusinessError) => {
       console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
     }).finally(() => {

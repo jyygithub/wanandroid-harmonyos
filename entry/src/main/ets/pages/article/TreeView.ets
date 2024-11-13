@@ -18,15 +18,31 @@ struct TreeView {
 
   build() {
     NavDestination() {
-      List() {
-        ForEach(this.viewModel.courses, (item: Course) => {
-          ListItem() {
-            Text(item.name)
-          }
-        })
+      Row() {
+        List() {
+          ForEach(this.viewModel.trees, (item: Course) => {
+            ListItem() {
+              Text(item.name)
+            }
+          })
+        }
+        .width('25%')
+
+        List() {
+          ForEach(this.viewModel.childTrees, (item: Course) => {
+            ListItem() {
+              Text(item.name)
+            }
+          })
+        }
+        .width('75%')
       }
+      .width('100%')
+      .height('100%')
+      .padding({ left: 16, right: 16 })
     }
     .title("知识体系")
+    .backgroundColor($r('app.color.page'))
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
     })
