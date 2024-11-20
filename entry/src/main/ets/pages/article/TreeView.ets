@@ -16,27 +16,33 @@ struct TreeView {
     this.viewModel.fetchTree()
   }
 
+  @Builder
+  itemHead(text: ResourceStr) {
+    Text(text)
+      .fontSize(16)
+      .backgroundColor($r('app.color.brand'))
+      .fontColor(Color.White)
+      .padding(8)
+  }
+
   build() {
     NavDestination() {
-      Row() {
-        List() {
-          ForEach(this.viewModel.trees, (item: Course) => {
-            ListItem() {
-              Text(item.name)
-            }
-          })
-        }
-        .width('25%')
 
-        List() {
-          ForEach(this.viewModel.childTrees, (item: Course) => {
-            ListItem() {
-              Text(item.name)
-            }
-          })
-        }
-        .width('75%')
+      List() {
+        ForEach(this.viewModel.trees, (item: Course) => {
+          ListItemGroup({ header: this.itemHead(item.name) }) {
+
+            ForEach(item.children, (item0: Course) => {
+              ListItem() {
+                Text(item0.name)
+                  .padding(8)
+              }
+            })
+          }
+        })
       }
+
+
       .width('100%')
       .height('100%')
       .padding({ left: 16, right: 16 })
