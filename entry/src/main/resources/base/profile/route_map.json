@@ -89,6 +89,11 @@
       "name": "ToolsView",
       "pageSourceFile": "src/main/ets/pages/tools/ToolsView.ets",
       "buildFunction": "ToolsViewBuilder"
+    },
+    {
+      "name": "TreeArticlesView",
+      "pageSourceFile": "src/main/ets/pages/article/TreeAriclesView.ets",
+      "buildFunction": "TreeArticlesViewBuilder"
     }
   ]
 }
