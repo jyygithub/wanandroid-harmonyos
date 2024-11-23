@@ -1,3 +1,4 @@
+import RouterPaths from "../../constants/RouterPaths";
 import Course from "../../models/Course";
 import TreeViewModel from "../../viewmodels/TreeViewModel";
 
@@ -36,7 +37,9 @@ struct TreeView {
               ListItem() {
                 Text(item0.name)
                   .padding(8)
-              }
+              }.onClick(() => {
+                this.pageInfos.pushPathByName(RouterPaths.TreeArticlesView, item)
+              })
             })
           }
         })
