@@ -92,7 +92,7 @@
     },
     {
       "name": "TreeArticlesView",
-      "pageSourceFile": "src/main/ets/pages/article/TreeAriclesView.ets",
+      "pageSourceFile": "src/main/ets/pages/article/TreeArticlesView.ets",
       "buildFunction": "TreeArticlesViewBuilder"
     }
   ]

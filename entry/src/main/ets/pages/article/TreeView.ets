@@ -38,7 +38,7 @@ struct TreeView {
                 Text(item0.name)
                   .padding(8)
               }.onClick(() => {
-                this.pageInfos.pushPathByName(RouterPaths.TreeArticlesView, item)
+                this.pageInfos.pushPathByName(RouterPaths.TreeArticlesView, item0)
               })
             })
           }

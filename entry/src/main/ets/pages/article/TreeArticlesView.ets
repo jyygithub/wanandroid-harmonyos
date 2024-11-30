@@ -1,5 +1,6 @@
 import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
+import Course from "../../models/Course";
 import CourseArticlesViewModel from "../../viewmodels/CourseArticlesViewModel";
 import ProjectsViewModel from "../../viewmodels/ProjectsViewModel";
 import WxArticlesViewModel from "../../viewmodels/WxArticlesViewModel";
@@ -15,6 +16,7 @@ export function TreeArticlesViewBuilder(name: string, param: Object) {
 export struct TreeArticlesView {
   @Local viewModel: CourseArticlesViewModel = new CourseArticlesViewModel();
   pageInfos: NavPathStack = new NavPathStack();
+  @Local title: string = ''
 
   build() {
     NavDestination() {
@@ -38,9 +40,11 @@ export struct TreeArticlesView {
     .backgroundColor($r('app.color.page'))
     .width('100%')
     .height('100%')
-    .title('体系文章')
+    .title(this.title)
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
+      let course = this.pageInfos.getParamByName(RouterPaths.TreeArticlesView).pop() as Course
+      this.title = course.name
     })
   }
 }
