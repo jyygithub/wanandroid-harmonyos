@@ -3,6 +3,7 @@ import Article from "../../models/Article";
 import Course from "../../models/Course";
 import CourseArticlesViewModel from "../../viewmodels/CourseArticlesViewModel";
 import ProjectsViewModel from "../../viewmodels/ProjectsViewModel";
+import TreeArticlesViewModel from "../../viewmodels/TreeArticlesViewModel";
 import WxArticlesViewModel from "../../viewmodels/WxArticlesViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
 
@@ -14,7 +15,7 @@ export function TreeArticlesViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 export struct TreeArticlesView {
-  @Local viewModel: CourseArticlesViewModel = new CourseArticlesViewModel();
+  @Local viewModel: TreeArticlesViewModel = new TreeArticlesViewModel();
   pageInfos: NavPathStack = new NavPathStack();
   @Local title: string = ''
 
@@ -45,6 +46,7 @@ export struct TreeArticlesView {
       this.pageInfos = context.pathStack;
       let course = this.pageInfos.getParamByName(RouterPaths.TreeArticlesView).pop() as Course
       this.title = course.name
+      this.viewModel.fetchArticles(0, course.id)
     })
   }
 }
