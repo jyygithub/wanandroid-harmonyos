@@ -94,6 +94,11 @@
       "name": "TreeArticlesView",
       "pageSourceFile": "src/main/ets/pages/article/TreeArticlesView.ets",
       "buildFunction": "TreeArticlesViewBuilder"
+    },
+    {
+      "name": "ProjectCategoryView",
+      "pageSourceFile": "src/main/ets/pages/article/ProjectCategoryView.ets",
+      "buildFunction": "ProjectCategoryViewBuilder"
     }
   ]
 }
