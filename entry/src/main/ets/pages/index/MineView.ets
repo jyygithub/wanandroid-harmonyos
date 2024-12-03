@@ -97,11 +97,27 @@ export struct MineView {
           .justifyContent(FlexAlign.Center)
           .width('100%')
           .padding(12)
-          .borderRadius(12)
+          .borderRadius({ topLeft: 12, topRight: 12 })
           .backgroundColor(Color.White)
         }.margin({ top: 20 })
         .onClick(() => {
           this.pageInfos.pushPathByName(RouterPaths.TreeView, null)
+        })
+
+        ListItem() {
+          Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.timer'))
+              .fontSize(20)
+            Text("项目分类").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
+          .borderRadius({ bottomLeft: 12, bottomRight: 12 })
+          .backgroundColor(Color.White)
+        }
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.ProjectCategoryView, null)
         })
 
         ListItem() {

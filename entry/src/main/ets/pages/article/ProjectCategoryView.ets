@@ -50,7 +50,7 @@ struct ProjectCategoryView {
       .height('100%')
       .padding({ left: 16, right: 16 })
     }
-    .title("知识体系")
+    .title("项目分类")
     .backgroundColor($r('app.color.page'))
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
