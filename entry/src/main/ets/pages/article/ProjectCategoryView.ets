@@ -1,5 +1,6 @@
 import RouterPaths from "../../constants/RouterPaths";
 import Course from "../../models/Course";
+import ProjectCategoryViewModel from "../../viewmodels/ProjectCategoryViewModel";
 import TreeViewModel from "../../viewmodels/TreeViewModel";
 
 @Builder
@@ -10,7 +11,7 @@ export function ProjectCategoryViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 struct ProjectCategoryView {
-  @Local viewModel: TreeViewModel = new TreeViewModel()
+  @Local viewModel: ProjectCategoryViewModel = new ProjectCategoryViewModel()
   pageInfos: NavPathStack = new NavPathStack();
 
   aboutToAppear(): void {
@@ -31,18 +32,17 @@ struct ProjectCategoryView {
 
       List() {
         ForEach(this.viewModel.trees, (item: Course) => {
-          ListItemGroup({ header: this.itemHead(item.name) }) {
 
-            ForEach(item.children, (item0: Course) => {
-              ListItem() {
-                Text(item0.name)
-                  .padding(8)
-              }.onClick(() => {
-                this.pageInfos.pushPathByName(RouterPaths.TreeArticlesView, item0)
-              })
-            })
-          }
+
+          ListItem() {
+            Text(item.name)
+              .padding(8)
+          }.onClick(() => {
+            this.pageInfos.pushPathByName(RouterPaths.TreeArticlesView, item)
+          })
         })
+
+
       }
 
 
