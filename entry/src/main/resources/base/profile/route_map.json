@@ -99,6 +99,11 @@
       "name": "ProjectCategoryView",
       "pageSourceFile": "src/main/ets/pages/article/ProjectCategoryView.ets",
       "buildFunction": "ProjectCategoryViewBuilder"
+    },
+    {
+      "name": "ProjectArticlesView",
+      "pageSourceFile": "src/main/ets/pages/article/ProjectArticlesView.ets",
+      "buildFunction": "ProjectArticlesViewBuilder"
     }
   ]
 }
