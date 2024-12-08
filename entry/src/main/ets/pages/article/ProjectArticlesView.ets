@@ -2,6 +2,7 @@ import RouterPaths from "../../constants/RouterPaths";
 import Article from "../../models/Article";
 import Course from "../../models/Course";
 import CourseArticlesViewModel from "../../viewmodels/CourseArticlesViewModel";
+import ProjectArticlesViewModel from "../../viewmodels/ProjectArticlesViewModel";
 import ProjectsViewModel from "../../viewmodels/ProjectsViewModel";
 import TreeArticlesViewModel from "../../viewmodels/TreeArticlesViewModel";
 import WxArticlesViewModel from "../../viewmodels/WxArticlesViewModel";
@@ -15,7 +16,7 @@ export function ProjectArticlesViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 export struct ProjectArticlesView {
-  @Local viewModel: TreeArticlesViewModel = new TreeArticlesViewModel();
+  @Local viewModel: ProjectArticlesViewModel = new ProjectArticlesViewModel();
   pageInfos: NavPathStack = new NavPathStack();
   @Local title: string = ''
 
@@ -44,7 +45,7 @@ export struct ProjectArticlesView {
     .title(this.title)
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
-      let course = this.pageInfos.getParamByName(RouterPaths.TreeArticlesView).pop() as Course
+      let course = this.pageInfos.getParamByName(RouterPaths.ProjectArticlesView).pop() as Course
       this.title = course.name
       this.viewModel.fetchArticles(0, course.id)
     })

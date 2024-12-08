@@ -38,7 +38,7 @@ struct ProjectCategoryView {
             Text(item.name)
               .padding(8)
           }.onClick(() => {
-            this.pageInfos.pushPathByName(RouterPaths.TreeArticlesView, item)
+            this.pageInfos.pushPathByName(RouterPaths.ProjectArticlesView, item)
           })
         })
 
