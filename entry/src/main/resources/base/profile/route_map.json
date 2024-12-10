@@ -104,6 +104,11 @@
       "name": "ProjectArticlesView",
       "pageSourceFile": "src/main/ets/pages/article/ProjectArticlesView.ets",
       "buildFunction": "ProjectArticlesViewBuilder"
+    },
+    {
+      "name": "SearchResultView",
+      "pageSourceFile": "src/main/ets/pages/article/SearchResultView.ets",
+      "buildFunction": "SearchResultViewBuilder"
     }
   ]
 }
