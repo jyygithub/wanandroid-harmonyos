@@ -1,5 +1,6 @@
 import SearchViewModel from "../../viewmodels/SearchViewModel";
 import { ChipSize, ChipGroup } from '@kit.ArkUI'
+import RouterPaths from "../../constants/RouterPaths";
 
 @Builder
 export function SearchViewBuilder(name: string, param: Object) {
@@ -9,6 +10,7 @@ export function SearchViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 export struct SearchView {
+  pageInfos: NavPathStack = new NavPathStack();
   @Local viewModel: SearchViewModel = new SearchViewModel();
 
   aboutToAppear(): void {
@@ -18,6 +20,14 @@ export struct SearchView {
   build() {
     NavDestination() {
       Column() {
+
+        Text('搜索...')
+          .width('100%')
+          .backgroundColor($r('sys.color.ohos_id_color_text_search_url'))
+          .onClick(() => {
+            this.pageInfos.pushPathByName(RouterPaths.SearchResultView, null)
+          })
+
         ChipGroup({
           items: [
             {
@@ -49,7 +59,7 @@ export struct SearchView {
           multiple: false,
           chipGroupSpace: { itemSpace: 8, endSpace: 0 },
           chipGroupPadding: { top: 10, bottom: 10 },
-          onChange: (activatedChipsIndex:Array<number>) => {
+          onChange: (activatedChipsIndex: Array<number>) => {
             console.log('chips on clicked, activated index ' + activatedChipsIndex)
           },
         })
@@ -60,5 +70,8 @@ export struct SearchView {
     .width('100%')
     .title('搜索')
     .backgroundColor($r('app.color.page'))
+    .onReady((context: NavDestinationContext) => {
+      this.pageInfos = context.pathStack;
+    })
   }
 }
