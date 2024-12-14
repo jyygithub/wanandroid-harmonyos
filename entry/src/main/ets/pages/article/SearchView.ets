@@ -22,8 +22,9 @@ export struct SearchView {
       Column() {
 
         Text('搜索...')
+          .padding(16)
           .width('100%')
-          .backgroundColor($r('sys.color.ohos_id_color_text_search_url'))
+          .backgroundColor($r('app.color.secondary'))
           .onClick(() => {
             this.pageInfos.pushPathByName(RouterPaths.SearchResultView, null)
           })

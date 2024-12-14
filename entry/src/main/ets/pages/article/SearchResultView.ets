@@ -10,6 +10,7 @@ export function SearchResultViewBuilder(name: string, param: Object) {
 @ComponentV2
 export struct SearchResultView {
   @Local viewModel: SearchViewModel = new SearchViewModel();
+  @Local searchKey: string = ""
 
   aboutToAppear(): void {
     this.viewModel.fetchHotKey()
@@ -18,42 +19,22 @@ export struct SearchResultView {
   build() {
     NavDestination() {
       Column() {
-        ChipGroup({
-          items: [
-            {
-              label: { text: "操作块1" },
-            },
-            {
-              label: { text: "操作块2" },
-            },
-            {
-              label: { text: "操作块3" },
-            },
-            {
-              label: { text: "操作块4" },
-            },
-            {
-              label: { text: "操作块5" },
-            },
-            {
-              label: { text: "操作块6" },
-            },
-          ],
-          itemStyle: {
-            size: ChipSize.SMALL,
-            backgroundColor: $r('sys.color.ohos_id_color_button_normal'),
-            fontColor: $r('sys.color.ohos_id_color_text_primary'),
-            selectedBackgroundColor: $r('sys.color.ohos_id_color_emphasize'),
-            selectedFontColor: $r('sys.color.ohos_id_color_text_primary_contrary'),
-          },
-          multiple: false,
-          chipGroupSpace: { itemSpace: 8, endSpace: 0 },
-          chipGroupPadding: { top: 10, bottom: 10 },
-          onChange: (activatedChipsIndex:Array<number>) => {
-            console.log('chips on clicked, activated index ' + activatedChipsIndex)
-          },
-        })
+        TextInput({ placeholder: "请输入..." })
+          .onChange((value) => {
+            this.searchKey = value
+          })
 
+        List() {
+          ForEach(this.viewModel.articles, (item: Article) => {
+            ListItem() {
+              ArticleRow({ article: item })
+            }
+            .onClick(() => {
+              this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
+            })
+          })
+        }
+        .divider({ strokeWidth: 1 })
       }
     }
     .height('100%')
