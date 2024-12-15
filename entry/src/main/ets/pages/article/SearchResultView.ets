@@ -1,5 +1,7 @@
-import SearchViewModel from "../../viewmodels/SearchViewModel";
-import { ChipSize, ChipGroup } from '@kit.ArkUI'
+import SearchResultViewModel from "../../viewmodels/SearchResultViewModel";
+import Article from "../../models/Article";
+import { ArticleRow } from "../../views/ArticleRow";
+import RouterPaths from "../../constants/RouterPaths";
 
 @Builder
 export function SearchResultViewBuilder(name: string, param: Object) {
@@ -9,19 +11,15 @@ export function SearchResultViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 export struct SearchResultView {
-  @Local viewModel: SearchViewModel = new SearchViewModel();
-  @Local searchKey: string = ""
-
-  aboutToAppear(): void {
-    this.viewModel.fetchHotKey()
-  }
+  pageInfos: NavPathStack = new NavPathStack();
+  @Local viewModel: SearchResultViewModel = new SearchResultViewModel();
 
   build() {
     NavDestination() {
       Column() {
         TextInput({ placeholder: "请输入..." })
           .onChange((value) => {
-            this.searchKey = value
+            this.viewModel.fetchArticles(0, value)
           })
 
         List() {
@@ -41,5 +39,8 @@ export struct SearchResultView {
     .width('100%')
     .title('搜索结果')
     .backgroundColor($r('app.color.page'))
+    .onReady((context: NavDestinationContext) => {
+      this.pageInfos = context.pathStack;
+    })
   }
 }
