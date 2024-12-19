@@ -23,8 +23,8 @@ export struct MineView {
           .backgroundColor(Color.White)
         }
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.LoginView, null)
-          // this.pageInfos.pushPathByName(RouterPaths.UserView, null)
+          // this.pageInfos.pushPathByName(RouterPaths.LoginView, null)
+          this.pageInfos.pushPathByName(RouterPaths.UserView, null)
         })
 
         ListItem() {
