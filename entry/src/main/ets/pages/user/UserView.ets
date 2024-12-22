@@ -1,4 +1,6 @@
+import { MyStorage } from "../../models/Storage";
 import UserViewModel from "../../viewmodels/UserViewModel";
+import { PersistenceV2 } from "@kit.ArkUI";
 
 @Builder
 export function UserViewBuilder(name: string, param: Object) {
@@ -8,6 +10,7 @@ export function UserViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 struct UserView {
+  @Local storage: MyStorage = PersistenceV2.connect(MyStorage, () => new MyStorage())!;
   pageInfos: NavPathStack = new NavPathStack();
   @Local viewModel: UserViewModel = new UserViewModel()
 
