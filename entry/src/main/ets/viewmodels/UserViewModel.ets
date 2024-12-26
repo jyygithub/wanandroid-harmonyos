@@ -8,10 +8,14 @@ export default class UserViewModel {
   @Trace user: User | undefined
   @Trace isRefreshing: boolean = false
 
-  fetchTree() {
+  fetchTree(cookies: string) {
     this.isRefreshing = true
     const getURL = `https://wanandroid.com//user/lg/userinfo/json`;
-    const session = rcp.createSession();
+    const session = rcp.createSession({
+      cookies: {
+        "cookies": cookies
+      }
+    });
     session.get(getURL).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
       let result = JSON.parse(JSON.stringify(response)) as ApiRepo<User>

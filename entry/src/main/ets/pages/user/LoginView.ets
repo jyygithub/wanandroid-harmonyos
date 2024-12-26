@@ -4,6 +4,7 @@ import LoginViewModel from "../../viewmodels/LoginViewModel";
 import { PersistenceV2, promptAction } from "@kit.ArkUI";
 import { rcp } from "@kit.RemoteCommunicationKit";
 import { BusinessError } from "@kit.BasicServicesKit";
+import { CookiesUtils } from "../../utils/CookiesUtils";
 
 @Builder
 export function LoginViewBuilder(name: string, param: Object) {
@@ -29,7 +30,8 @@ struct LoginView {
     session.post(getURL, `username=${this.email}&password=${this.password}`).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response.cookies)}`);
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
-      this.storage.cookies = JSON.stringify(response.cookies)
+      this.storage.cookies = CookiesUtils.formatWanAndroidCookies(response.cookies || [])
+      console.info(`Response succeeded: ${CookiesUtils.formatWanAndroidCookies(response.cookies || [])}`);
       PersistenceV2.save(MyStorage);
       promptAction.showToast({ message: "登录成功" })
       this.pageInfos.pop()

@@ -15,7 +15,7 @@ struct UserView {
   @Local viewModel: UserViewModel = new UserViewModel()
 
   aboutToAppear(): void {
-    this.viewModel.fetchTree()
+    this.viewModel.fetchTree(this.storage.cookies)
   }
 
   build() {
