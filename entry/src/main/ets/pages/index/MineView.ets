@@ -1,8 +1,11 @@
 import RouterPaths from "../../constants/RouterPaths";
+import { MyStorage } from "../../models/Storage";
+import { PersistenceV2 } from "@kit.ArkUI";
 
 @Preview
 @ComponentV2
 export struct MineView {
+  @Local storage: MyStorage = PersistenceV2.connect(MyStorage, () => new MyStorage())!;
   @Require @Param pageInfos: NavPathStack;
 
   build() {
@@ -23,8 +26,11 @@ export struct MineView {
           .backgroundColor(Color.White)
         }
         .onClick(() => {
-          // this.pageInfos.pushPathByName(RouterPaths.LoginView, null)
-          this.pageInfos.pushPathByName(RouterPaths.UserView, null)
+          if (this.storage.cookies == "") {
+            this.pageInfos.pushPathByName(RouterPaths.LoginView, null)
+          } else {
+            this.pageInfos.pushPathByName(RouterPaths.UserView, null)
+          }
         })
 
         ListItem() {
