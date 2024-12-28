@@ -54,6 +54,14 @@ struct UserView {
             Text("账号安全")
           }
         }
+
+        ListItem() {
+          Button("退出登录")
+            .onClick(() => {
+              this.storage.cookies = ""
+              this.pageInfos.pop()
+            })
+        }
       }
 
     }
