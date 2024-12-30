@@ -25,34 +25,41 @@ struct UserView {
         ListItem() {
           Row() {
             Text("头像")
-          }
+            Blank()
+            Image($r('app.media.startIcon'))
+              .width(60)
+              .height(60)
+          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
         }
 
         ListItem() {
           Row() {
             Text("昵称")
+            Blank()
             Text(this.viewModel.user?.userInfo?.nickname)
-          }
+          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
         }
 
         ListItem() {
           Row() {
             Text("邮箱")
+            Blank()
             Text(this.viewModel.user?.userInfo?.email)
-          }
+          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
         }
 
         ListItem() {
           Row() {
             Text("用户名")
+            Blank()
             Text(this.viewModel.user?.userInfo?.username)
-          }
+          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
         }
 
         ListItem() {
           Row() {
             Text("账号安全")
-          }
+          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
         }
 
         ListItem() {
@@ -61,8 +68,11 @@ struct UserView {
               this.storage.cookies = ""
               this.pageInfos.pop()
             })
+            .width('100%')
         }
       }
+      .padding({ left: 16, right: 16 })
+      .divider({ strokeWidth: 1 })
 
     }
     .height('100%')
