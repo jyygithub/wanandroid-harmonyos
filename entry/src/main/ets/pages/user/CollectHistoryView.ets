@@ -8,6 +8,16 @@ export function CollectHistoryViewBuilder(name: string, param: Object) {
 struct CollectHistoryView {
   build() {
     NavDestination() {
+      Tabs({ barPosition: BarPosition.Start }) {
+        TabContent() {
+
+        }.tabBar("文章")
+
+        TabContent() {
+
+        }.tabBar("网址")
+
+      }
 
     }
     .title("我的收藏")
