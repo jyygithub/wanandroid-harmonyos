@@ -1,3 +1,6 @@
+import { ArticleCollectHistoryView } from "./collect/ArticleCollectHistoryView"
+import { WebCollectHistoryView } from "./collect/WebCollectHistoryView"
+
 @Builder
 export function CollectHistoryViewBuilder(name: string, param: Object) {
   CollectHistoryView()
@@ -10,11 +13,11 @@ struct CollectHistoryView {
     NavDestination() {
       Tabs({ barPosition: BarPosition.Start }) {
         TabContent() {
-
+          ArticleCollectHistoryView()
         }.tabBar("文章")
 
         TabContent() {
-
+          WebCollectHistoryView()
         }.tabBar("网址")
 
       }
