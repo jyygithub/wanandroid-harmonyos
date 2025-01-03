@@ -1,7 +1,7 @@
-import RouterPaths from "../../constants/RouterPaths";
-import Article from "../../models/Article";
-import CirclesViewModel from "../../viewmodels/CirclesViewModel";
-import { ArticleRow } from "../../views/ArticleRow";
+import RouterPaths from "../../../constants/RouterPaths";
+import Article from "../../../models/Article";
+import CirclesViewModel from "../../../viewmodels/CirclesViewModel";
+import { ArticleRow } from "../../../views/ArticleRow";
 
 @Preview
 @ComponentV2

@@ -9,6 +9,9 @@ export function CollectHistoryViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 struct CollectHistoryView {
+
+
+
   build() {
     NavDestination() {
       Tabs({ barPosition: BarPosition.Start }) {
