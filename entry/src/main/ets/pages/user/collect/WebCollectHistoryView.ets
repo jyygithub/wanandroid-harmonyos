@@ -1,12 +1,12 @@
-import RouterPaths from "../../constants/RouterPaths";
-import Article from "../../models/Article";
-import CirclesViewModel from "../../viewmodels/CirclesViewModel";
-import { ArticleRow } from "../../views/ArticleRow";
+import RouterPaths from "../../../constants/RouterPaths";
+import Article from "../../../models/Article";
+import WebCollectHostiryViewModel from "../../../viewmodels/WebCollectHostiryViewModel";
+import { ArticleRow } from "../../../views/ArticleRow";
 
 @Preview
 @ComponentV2
 export struct WebCollectHistoryView {
-  @Local viewModel: CirclesViewModel = new CirclesViewModel();
+  @Local viewModel: WebCollectHostiryViewModel = new WebCollectHostiryViewModel();
   @Require @Param pageInfos: NavPathStack;
 
   aboutToAppear(): void {
