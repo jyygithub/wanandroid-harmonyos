@@ -9,23 +9,25 @@ export function CollectHistoryViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 struct CollectHistoryView {
-
-
+  pageInfos: NavPathStack = new NavPathStack();
 
   build() {
     NavDestination() {
       Tabs({ barPosition: BarPosition.Start }) {
         TabContent() {
-          ArticleCollectHistoryView()
+          ArticleCollectHistoryView({ pageInfos: this.pageInfos })
         }.tabBar("文章")
 
         TabContent() {
-          WebCollectHistoryView()
+          WebCollectHistoryView({ pageInfos: this.pageInfos })
         }.tabBar("网址")
 
       }
 
     }
     .title("我的收藏")
+    .onReady((context: NavDestinationContext) => {
+      this.pageInfos = context.pathStack;
+    })
   }
 }
