@@ -1,16 +1,19 @@
 import RouterPaths from "../../../constants/RouterPaths";
 import Article from "../../../models/Article";
-import CirclesViewModel from "../../../viewmodels/CirclesViewModel";
+import { MyStorage } from "../../../models/Storage";
+import ArticleCollectHostiryViewModel from "../../../viewmodels/ArticleCollectHostiryViewModel";
 import { ArticleRow } from "../../../views/ArticleRow";
+import { PersistenceV2 } from "@kit.ArkUI";
 
 @Preview
 @ComponentV2
 export struct ArticleCollectHistoryView {
-  @Local viewModel: CirclesViewModel = new CirclesViewModel();
+  @Local storage: MyStorage = PersistenceV2.connect(MyStorage, () => new MyStorage())!;
+  @Local viewModel: ArticleCollectHostiryViewModel = new ArticleCollectHostiryViewModel();
   @Require @Param pageInfos: NavPathStack;
 
   aboutToAppear(): void {
-    this.viewModel.fetchArticles(0)
+    this.viewModel.fetchArticles(0,this.storage.cookies)
   }
 
   build() {
@@ -29,7 +32,7 @@ export struct ArticleCollectHistoryView {
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
-        this.viewModel.fetchArticles(0)
+        this.viewModel.fetchArticles(0,this.storage.cookies)
       })
     }
     .backgroundColor($r('app.color.page'))

@@ -9,10 +9,14 @@ export default class ArticleCollectHostiryViewModel {
   @Trace articles: Array<Article> = []
   @Trace isRefreshing: boolean = false
 
-  fetchArticles(page: number) {
+  fetchArticles(page: number, cookies: string) {
     this.isRefreshing = true
     const getURL = `https://www.wanandroid.com/lg/collect/list/0/json`;
-    const session = rcp.createSession();
+    const session = rcp.createSession({
+      cookies: {
+        "cookies": cookies
+      }
+    });
     session.get(getURL).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
       let result = JSON.parse(JSON.stringify(response)) as ApiRepo<PageRepo<Article>>
