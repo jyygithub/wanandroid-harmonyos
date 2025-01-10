@@ -1,3 +1,4 @@
+import RouterPaths from "../../constants/RouterPaths";
 import { ArticleCollectHistoryView } from "./collect/ArticleCollectHistoryView"
 import { WebCollectHistoryView } from "./collect/WebCollectHistoryView"
 
@@ -26,6 +27,22 @@ struct CollectHistoryView {
 
     }
     .title("我的收藏")
+    .backgroundColor($r('app.color.page'))
+    .menus([{
+      value: '新增',
+      icon: $r('sys.media.ohos_ic_public_add'),
+      action: () => {
+        this.getUIContext().showTextPickerDialog({
+          alignment: DialogAlignment.Bottom,
+          range: ['收藏站外文章', '收藏网址'],
+          canLoop: false,
+          selected: 0,
+          onAccept: (value: TextPickerResult) => {
+
+          }
+        })
+      }
+    }])
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
     })
