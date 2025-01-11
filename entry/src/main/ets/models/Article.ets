@@ -1,4 +1,6 @@
 export default class Article {
+  id: number = 0
+  originId: number | undefined
   title: string = ""
   link: string = ""
   niceDate: string | null = null

@@ -13,7 +13,16 @@ export struct ArticleCollectHistoryView {
   @Require @Param pageInfos: NavPathStack;
 
   aboutToAppear(): void {
-    this.viewModel.fetchArticles(0,this.storage.cookies)
+    this.viewModel.fetchArticles(0, this.storage.cookies)
+  }
+
+  @Builder
+  itemEnd(item: Article) {
+    // 构建尾端滑出组件
+    Button("移出收藏")
+      .onClick(() => {
+        this.viewModel.cancelCollect(item.id, item.originId, this.storage.cookies)
+      })
   }
 
   build() {
@@ -27,12 +36,20 @@ export struct ArticleCollectHistoryView {
             .onClick(() => {
               this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
             })
+            .swipeAction({
+              end: {
+                // index为该ListItem在List中的索引值。
+                builder: () => {
+                  this.itemEnd(item)
+                },
+              }
+            }) // 设置侧滑属性.
           })
         }
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
-        this.viewModel.fetchArticles(0,this.storage.cookies)
+        this.viewModel.fetchArticles(0, this.storage.cookies)
       })
     }
     .backgroundColor($r('app.color.page'))
