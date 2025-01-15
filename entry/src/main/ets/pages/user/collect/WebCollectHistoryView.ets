@@ -4,6 +4,7 @@ import { MyStorage } from "../../../models/Storage";
 import WebCollectHostiryViewModel from "../../../viewmodels/WebCollectHostiryViewModel";
 import { ArticleRow } from "../../../views/ArticleRow";
 import { PersistenceV2 } from "@kit.ArkUI";
+import WebUrl from "../../../models/WebUrl";
 
 @Preview
 @ComponentV2
@@ -13,29 +14,47 @@ export struct WebCollectHistoryView {
   @Require @Param pageInfos: NavPathStack;
 
   aboutToAppear(): void {
-    this.viewModel.fetchArticles(0,this.storage.cookies)
+    this.viewModel.fetchArticles(0, this.storage.cookies)
+  }
+
+  @Builder
+  itemEnd(item: WebUrl) {
+    // 构建尾端滑出组件
+    Button("移出收藏")
+      .onClick(() => {
+        this.viewModel.cancelCollect(item.id, this.storage.cookies)
+      })
   }
 
   build() {
     NavDestination() {
       Refresh({ refreshing: this.viewModel.isRefreshing }) {
         List() {
-          ForEach(this.viewModel.articles, (item: Article) => {
+          ForEach(this.viewModel.articles, (item: WebUrl) => {
             ListItem() {
               Column() {
-                Text(item.title)
+                Text(item.name)
                 Text(item.link)
-              }
+              }.width('100%')
             }
             .onClick(() => {
               this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
             })
+            .swipeAction({
+              end: {
+                // index为该ListItem在List中的索引值。
+                builder: () => {
+                  this.itemEnd(item)
+                },
+              }
+            }) // 设置侧滑属性.
           })
         }
+        .width('100%')
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
-        this.viewModel.fetchArticles(0,this.storage.cookies)
+        this.viewModel.fetchArticles(0, this.storage.cookies)
       })
     }
     .backgroundColor($r('app.color.page'))
