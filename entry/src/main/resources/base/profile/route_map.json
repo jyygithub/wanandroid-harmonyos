@@ -109,6 +109,11 @@
       "name": "SearchResultView",
       "pageSourceFile": "src/main/ets/pages/article/SearchResultView.ets",
       "buildFunction": "SearchResultViewBuilder"
+    },
+    {
+      "name": "CollectWebUrlView",
+      "pageSourceFile": "src/main/ets/pages/user/collect/CollectWebUrlView.ets",
+      "buildFunction": "CollectWebUrlViewBuilder"
     }
   ]
 }
