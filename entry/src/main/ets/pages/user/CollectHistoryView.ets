@@ -38,7 +38,11 @@ struct CollectHistoryView {
           canLoop: false,
           selected: 0,
           onAccept: (value: TextPickerResult) => {
-
+            if ((value.index as number) == 0) {
+              this.pageInfos.pushPathByName(RouterPaths.CollectArticleUrlView, null)
+            } else {
+              this.pageInfos.pushPathByName(RouterPaths.CollectWebUrlView, null)
+            }
           }
         })
       }
