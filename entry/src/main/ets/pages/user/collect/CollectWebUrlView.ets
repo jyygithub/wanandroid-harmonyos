@@ -12,17 +12,11 @@ struct CollectWebUrlView {
     NavDestination() {
 
       Column({ space: 20 }) {
-        Blank()
-        Image($r('app.media.startIcon'))
-          .width(80)
-          .height(80)
-        Text($r('app.string.app_name'))
-          .fontWeight(FontWeight.Bold)
-        Text("当前版本：0.1")
-        Blank()
-        Text('Github开源项目')
-        Blank().height(20)
+        TextInput({ placeholder: "网站名称" })
+        TextArea({ placeholder: "链接地址" })
+        Button("保存").width('100%')
       }
+      .padding({ left: 16, right: 16 })
       .height('100%')
 
     }
