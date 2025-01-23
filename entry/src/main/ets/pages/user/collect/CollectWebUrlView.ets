@@ -1,3 +1,7 @@
+import { MyStorage } from "../../../models/Storage";
+import CollectWebUrlViewModel from "../../../viewmodels/CollectWebUrlViewModel";
+import { PersistenceV2 } from "@kit.ArkUI";
+
 @Builder
 export function CollectWebUrlViewBuilder(name: string, param: Object) {
   CollectWebUrlView()
@@ -6,15 +10,28 @@ export function CollectWebUrlViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 struct CollectWebUrlView {
+  @Local storage: MyStorage = PersistenceV2.connect(MyStorage, () => new MyStorage())!;
   pageInfos: NavPathStack = new NavPathStack();
+  @Local viewModel: CollectWebUrlViewModel = new CollectWebUrlViewModel()
+  @Local name: string = ''
+  @Local link: string = ''
 
   build() {
     NavDestination() {
 
       Column({ space: 20 }) {
         TextInput({ placeholder: "网站名称" })
+          .onChange((value) => {
+            this.name = value
+          })
         TextArea({ placeholder: "链接地址" })
+          .onChange((value) => {
+            this.link = value
+          })
         Button("保存").width('100%')
+          .onClick(() => {
+            this.viewModel.collect(this.name, this.link, this.storage.cookies)
+          })
       }
       .padding({ left: 16, right: 16 })
       .height('100%')
