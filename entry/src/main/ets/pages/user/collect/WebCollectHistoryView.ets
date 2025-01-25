@@ -19,11 +19,18 @@ export struct WebCollectHistoryView {
 
   @Builder
   itemEnd(item: WebUrl) {
-    // 构建尾端滑出组件
-    Button("移出收藏")
-      .onClick(() => {
-        this.viewModel.cancelCollect(item.id, this.storage.cookies)
-      })
+    Row() {
+      // 构建尾端滑出组件
+      Button("移出")
+        .onClick(() => {
+          this.viewModel.cancelCollect(item.id, this.storage.cookies)
+        })
+      // 构建尾端滑出组件
+      Button("编辑")
+        .onClick(() => {
+          this.viewModel.cancelCollect(item.id, this.storage.cookies)
+        })
+    }
   }
 
   build() {
