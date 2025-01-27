@@ -23,4 +23,5 @@ export default class RouterPaths {
   static readonly SearchResultView = "SearchResultView";
   static readonly CollectWebUrlView = "CollectWebUrlView";
   static readonly CollectArticleUrlView = "CollectArticleUrlView";
+  static readonly EditCollectWebUrlView = "EditCollectWebUrlView";
 }

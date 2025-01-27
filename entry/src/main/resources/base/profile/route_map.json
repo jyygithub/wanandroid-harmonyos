@@ -119,6 +119,11 @@
       "name": "CollectArticleUrlView",
       "pageSourceFile": "src/main/ets/pages/user/collect/CollectArticleUrlView.ets",
       "buildFunction": "CollectArticleUrlViewBuilder"
+    },
+    {
+      "name": "EditCollectWebUrlView",
+      "pageSourceFile": "src/main/ets/pages/user/collect/EditCollectWebUrlView.ets",
+      "buildFunction": "EditCollectWebUrlViewBuilder"
     }
   ]
 }
