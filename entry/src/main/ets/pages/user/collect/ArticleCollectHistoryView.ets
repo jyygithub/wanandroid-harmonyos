@@ -18,11 +18,19 @@ export struct ArticleCollectHistoryView {
 
   @Builder
   itemEnd(item: Article) {
-    // 构建尾端滑出组件
-    Button("移出收藏")
-      .onClick(() => {
-        this.viewModel.cancelCollect(item.id, item.originId, this.storage.cookies)
-      })
+
+    Row() {
+      // 构建尾端滑出组件
+      Button("移出")
+        .onClick(() => {
+          this.viewModel.cancelCollect(item.id, item.originId, this.storage.cookies)
+        })
+      // 构建尾端滑出组件
+      Button("编辑")
+        .onClick(() => {
+
+        })
+    }
   }
 
   build() {
