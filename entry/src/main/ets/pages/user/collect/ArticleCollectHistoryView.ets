@@ -28,7 +28,7 @@ export struct ArticleCollectHistoryView {
       // 构建尾端滑出组件
       Button("编辑")
         .onClick(() => {
-
+          this.pageInfos.pushPathByName(RouterPaths.EditCollectArticleUrlView, item)
         })
     }
   }

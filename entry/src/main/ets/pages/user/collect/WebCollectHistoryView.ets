@@ -28,7 +28,7 @@ export struct WebCollectHistoryView {
       // 构建尾端滑出组件
       Button("编辑")
         .onClick(() => {
-          this.viewModel.cancelCollect(item.id, this.storage.cookies)
+          this.pageInfos.pushPathByName(RouterPaths.EditCollectWebUrlView, item)
         })
     }
   }
