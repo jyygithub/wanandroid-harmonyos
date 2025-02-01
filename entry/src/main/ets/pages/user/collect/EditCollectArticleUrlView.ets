@@ -1,6 +1,8 @@
 import { MyStorage } from "../../../models/Storage";
 import { PersistenceV2 } from "@kit.ArkUI";
 import CollectArticleViewModel from "../../../viewmodels/CollectArticleViewModel";
+import RouterPaths from "../../../constants/RouterPaths";
+import Article from "../../../models/Article";
 
 @Builder
 export function EditCollectArticleUrlViewBuilder(name: string, param: Object) {
@@ -21,15 +23,15 @@ struct EditCollectArticleUrlView {
     NavDestination() {
 
       Column({ space: 20 }) {
-        TextInput({ placeholder: "文章标题" })
+        TextInput({ placeholder: "文章标题", text: this.title })
           .onChange((value) => {
             this.title = value
           })
-        TextInput({ placeholder: "文章作者" })
+        TextInput({ placeholder: "文章作者", text: this.author })
           .onChange((value) => {
             this.author = value
           })
-        TextArea({ placeholder: "链接地址" })
+        TextArea({ placeholder: "链接地址", text: this.link })
           .onChange((value) => {
             this.link = value
           })
@@ -48,6 +50,10 @@ struct EditCollectArticleUrlView {
     .backgroundColor($r('app.color.page'))
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
+      const param = this.pageInfos.getParamByName(RouterPaths.EditCollectArticleUrlView).pop() as Article
+      this.title = param.title
+      this.author = param.author || ""
+      this.link = param.link
     })
   }
 }
