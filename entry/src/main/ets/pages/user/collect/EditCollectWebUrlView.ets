@@ -3,6 +3,7 @@ import CollectWebUrlViewModel from "../../../viewmodels/CollectWebUrlViewModel";
 import { PersistenceV2 } from "@kit.ArkUI";
 import RouterPaths from "../../../constants/RouterPaths";
 import WebUrl from "../../../models/WebUrl";
+import EditCollectWebUrlViewModel from "../../../viewmodels/EditCollectWebUrlViewModel";
 
 @Builder
 export function EditCollectWebUrlViewBuilder(name: string, param: Object) {
@@ -14,7 +15,8 @@ export function EditCollectWebUrlViewBuilder(name: string, param: Object) {
 struct EditCollectWebUrlView {
   @Local storage: MyStorage = PersistenceV2.connect(MyStorage, () => new MyStorage())!;
   pageInfos: NavPathStack = new NavPathStack();
-  @Local viewModel: CollectWebUrlViewModel = new CollectWebUrlViewModel()
+  @Local viewModel: EditCollectWebUrlViewModel = new EditCollectWebUrlViewModel()
+  @Local wid: number = 0
   @Local name: string = ''
   @Local link: string = ''
 
@@ -32,7 +34,7 @@ struct EditCollectWebUrlView {
           })
         Button("保存").width('100%')
           .onClick(() => {
-            this.viewModel.collect(this.name, this.link, this.storage.cookies)
+            this.viewModel.collect(this.wid, this.name, this.link, this.storage.cookies)
           })
       }
       .padding({ left: 16, right: 16 })
@@ -46,6 +48,7 @@ struct EditCollectWebUrlView {
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
       const param = this.pageInfos.getParamByName(RouterPaths.EditCollectWebUrlView).pop() as WebUrl
+      this.wid = param.id
       this.name = param.name
       this.link = param.link
     })
