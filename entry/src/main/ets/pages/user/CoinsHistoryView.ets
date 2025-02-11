@@ -26,9 +26,11 @@ struct CoinsHistoryView {
           ForEach(this.viewModel.result, (item: CoinHistory) => {
             ListItem() {
               Text(item.desc)
+                .padding(8)
             }
           })
         }
+        .padding({ left: 16, right: 16 })
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
@@ -36,6 +38,7 @@ struct CoinsHistoryView {
       })
     }
     .title("我的积分")
+    .backgroundColor($r('app.color.page'))
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
     })
