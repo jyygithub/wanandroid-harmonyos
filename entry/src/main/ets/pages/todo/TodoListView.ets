@@ -12,21 +12,16 @@ struct TodoListView {
 
   build() {
     NavDestination() {
+      Tabs({ barPosition: BarPosition.Start }) {
+        TabContent() {
 
-      Column({ space: 20 }) {
-        Blank()
-        Image($r('app.media.startIcon'))
-          .width(80)
-          .height(80)
-        Text($r('app.string.app_name'))
-          .fontWeight(FontWeight.Bold)
-        Text("当前版本：0.1")
-        Blank()
-        Text('Github开源项目')
-        Blank().height(20)
+        }.tabBar("未完成")
+
+        TabContent() {
+
+        }.tabBar("已完成")
+
       }
-      .height('100%')
-
     }
     .height('100%')
     .width('100%')
