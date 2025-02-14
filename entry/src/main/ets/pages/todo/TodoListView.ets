@@ -1,4 +1,6 @@
 import RouterPaths from "../../constants/RouterPaths";
+import { DoneTodoListView } from "./status/DoneTodoListView";
+import { UndoTodoListView } from "./status/UndoTodoListView";
 
 @Builder
 export function TodoListViewBuilder(name: string, param: Object) {
@@ -14,11 +16,11 @@ struct TodoListView {
     NavDestination() {
       Tabs({ barPosition: BarPosition.Start }) {
         TabContent() {
-
+          UndoTodoListView({ pageInfos: this.pageInfos })
         }.tabBar("未完成")
 
         TabContent() {
-
+          DoneTodoListView({ pageInfos: this.pageInfos })
         }.tabBar("已完成")
 
       }
