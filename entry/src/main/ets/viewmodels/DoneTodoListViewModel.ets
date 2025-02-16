@@ -6,7 +6,7 @@ import PageRepo from '../models/PageRepo';
 import Todo from '../models/Todo';
 
 @ObservedV2
-export default class UndoTodoListViewModel {
+export default class DoneTodoListViewModel {
   @Trace items: Array<Todo> = []
   @Trace isRefreshing: boolean = false
 
@@ -21,7 +21,7 @@ export default class UndoTodoListViewModel {
         "cookies": cookies
       }
     });
-    session.post(getURL, `status=0`).then((response) => {
+    session.post(getURL, `status=1`).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
       let result = JSON.parse(JSON.stringify(response)) as ApiRepo<PageRepo<Article>>
       this.items = result.data?.datas ?? []
@@ -32,4 +32,5 @@ export default class UndoTodoListViewModel {
       session.close()
     });
   }
+
 }
