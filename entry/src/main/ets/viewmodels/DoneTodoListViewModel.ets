@@ -23,7 +23,7 @@ export default class DoneTodoListViewModel {
     });
     session.post(getURL, `status=1`).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
-      let result = JSON.parse(JSON.stringify(response)) as ApiRepo<PageRepo<Article>>
+      let result = JSON.parse(JSON.stringify(response)) as ApiRepo<PageRepo<Todo>>
       this.items = result.data?.datas ?? []
     }).catch((err: BusinessError) => {
       console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);

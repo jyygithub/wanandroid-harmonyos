@@ -23,7 +23,7 @@ export default class UndoTodoListViewModel {
     });
     session.post(getURL, `status=0`).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
-      let result = JSON.parse(JSON.stringify(response)) as ApiRepo<PageRepo<Article>>
+      let result = JSON.parse(JSON.stringify(response)) as ApiRepo<PageRepo<Todo>>
       this.items = result.data?.datas ?? []
     }).catch((err: BusinessError) => {
       console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);

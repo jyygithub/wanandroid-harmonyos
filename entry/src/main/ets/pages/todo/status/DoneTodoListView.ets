@@ -4,31 +4,33 @@ import { MyStorage } from "../../../models/Storage";
 import ArticleCollectHostiryViewModel from "../../../viewmodels/ArticleCollectHostiryViewModel";
 import { ArticleRow } from "../../../views/ArticleRow";
 import { PersistenceV2 } from "@kit.ArkUI";
+import DoneTodoListViewModel from "../../../viewmodels/DoneTodoListViewModel";
+import Todo from "../../../models/Todo";
 
 @Preview
 @ComponentV2
 export struct DoneTodoListView {
   @Local storage: MyStorage = PersistenceV2.connect(MyStorage, () => new MyStorage())!;
-  @Local viewModel: ArticleCollectHostiryViewModel = new ArticleCollectHostiryViewModel();
+  @Local viewModel: DoneTodoListViewModel = new DoneTodoListViewModel();
   @Require @Param pageInfos: NavPathStack;
 
   aboutToAppear(): void {
-    this.viewModel.fetchArticles(0, this.storage.cookies)
+    this.viewModel.fetchArticles(1, this.storage.cookies)
   }
 
   @Builder
-  itemEnd(item: Article) {
+  itemEnd(item: Todo) {
 
     Row() {
       // 构建尾端滑出组件
       Button("移出")
         .onClick(() => {
-          this.viewModel.cancelCollect(item.id, item.originId, this.storage.cookies)
+
         })
       // 构建尾端滑出组件
       Button("编辑")
         .onClick(() => {
-          this.pageInfos.pushPathByName(RouterPaths.EditCollectArticleUrlView, item)
+
         })
     }
   }
@@ -37,9 +39,9 @@ export struct DoneTodoListView {
     NavDestination() {
       Refresh({ refreshing: this.viewModel.isRefreshing }) {
         List() {
-          ForEach(this.viewModel.articles, (item: Article) => {
+          ForEach(this.viewModel.items, (item: Todo) => {
             ListItem() {
-              ArticleRow({ article: item })
+              Text(item.content)
             }
             .onClick(() => {
               this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
@@ -57,7 +59,7 @@ export struct DoneTodoListView {
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
-        this.viewModel.fetchArticles(0, this.storage.cookies)
+        this.viewModel.fetchArticles(1, this.storage.cookies)
       })
     }
     .backgroundColor($r('app.color.page'))
