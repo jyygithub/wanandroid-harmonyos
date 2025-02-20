@@ -1,11 +1,9 @@
 import RouterPaths from "../../../constants/RouterPaths";
-import Article from "../../../models/Article";
 import { MyStorage } from "../../../models/Storage";
-import ArticleCollectHostiryViewModel from "../../../viewmodels/ArticleCollectHostiryViewModel";
-import { ArticleRow } from "../../../views/ArticleRow";
 import { PersistenceV2 } from "@kit.ArkUI";
 import UndoTodoListViewModel from "../../../viewmodels/UndoTodoListViewModel";
 import Todo from "../../../models/Todo";
+import { TodoRow } from "../../../views/TodoRow";
 
 @Preview
 @ComponentV2
@@ -41,7 +39,7 @@ export struct UndoTodoListView {
         List() {
           ForEach(this.viewModel.items, (item: Todo) => {
             ListItem() {
-              Text(item.content)
+              TodoRow({ todo: item })
             }
             .onClick(() => {
               this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
@@ -56,6 +54,7 @@ export struct UndoTodoListView {
             }) // 设置侧滑属性.
           })
         }
+        .padding({ left: 16, right: 16 })
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {

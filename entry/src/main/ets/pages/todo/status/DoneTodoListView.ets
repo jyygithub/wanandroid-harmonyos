@@ -6,6 +6,7 @@ import { ArticleRow } from "../../../views/ArticleRow";
 import { PersistenceV2 } from "@kit.ArkUI";
 import DoneTodoListViewModel from "../../../viewmodels/DoneTodoListViewModel";
 import Todo from "../../../models/Todo";
+import { TodoRow } from "../../../views/TodoRow";
 
 @Preview
 @ComponentV2
@@ -41,7 +42,7 @@ export struct DoneTodoListView {
         List() {
           ForEach(this.viewModel.items, (item: Todo) => {
             ListItem() {
-              Text(item.content)
+              TodoRow({ todo: item })
             }
             .onClick(() => {
               this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
@@ -56,6 +57,7 @@ export struct DoneTodoListView {
             }) // 设置侧滑属性.
           })
         }
+        .padding({ left: 16, right: 16 })
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
