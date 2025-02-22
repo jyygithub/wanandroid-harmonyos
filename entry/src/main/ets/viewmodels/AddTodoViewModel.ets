@@ -5,10 +5,8 @@ import Todo from '../models/Todo';
 @ObservedV2
 export default class AddTodoViewModel {
   @Trace todoList: Array<Todo> = []
-  @Trace isRefreshing: boolean = false
 
   addTodo(title: string, content: string, cookies: string) {
-    this.isRefreshing = true
     const getURL = `https://www.wanandroid.com/lg/todo/add/json`;
     const params = `title=${title}&content=${content}`
     const session = rcp.createSession({
@@ -24,7 +22,6 @@ export default class AddTodoViewModel {
     }).catch((err: BusinessError) => {
       console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
     }).finally(() => {
-      this.isRefreshing = false
       session.close()
     });
   }
