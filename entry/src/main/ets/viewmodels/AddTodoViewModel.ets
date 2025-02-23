@@ -6,9 +6,9 @@ import Todo from '../models/Todo';
 export default class AddTodoViewModel {
   @Trace todoList: Array<Todo> = []
 
-  addTodo(title: string, content: string, cookies: string) {
+  addTodo(title: string, content: string, date: String, cookies: string) {
     const getURL = `https://www.wanandroid.com/lg/todo/add/json`;
-    const params = `title=${title}&content=${content}`
+    const params = `title=${title}&content=${content}&date=${date}`
     const session = rcp.createSession({
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"

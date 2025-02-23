@@ -15,18 +15,27 @@ struct AddTodoView {
   @Local viewModel: AddTodoViewModel = new AddTodoViewModel();
   @Local title: string = ''
   @Local content: string = ''
+  @Local currentDate: Date = new Date()
 
   build() {
     NavDestination() {
 
       Column({ space: 20 }) {
-
-        TextInput()
+        Text(this.currentDate.toDateString()).backgroundColor($r('app.color.press'))
+          .width('100%')
+          .padding({
+            top: 10,
+            bottom: 10,
+            left: 16,
+            right: 16
+          })
+          .borderRadius(16)
+        TextInput({ placeholder: "待办名称..." })
           .onChange((value) => {
             this.title = value
           })
 
-        TextArea()
+        TextArea({ placeholder: "待办明细..." })
           .height(500)
           .onChange((value) => {
             this.content = value
@@ -46,7 +55,7 @@ struct AddTodoView {
       value: '提交',
       icon: $r('sys.media.ohos_ic_public_ok'),
       action: () => {
-        this.viewModel.addTodo(this.title, this.content, this.storage.cookies)
+        this.viewModel.addTodo(this.title, this.content, this.currentDate.toDateString(), this.storage.cookies)
       }
     }])
     .onReady((context: NavDestinationContext) => {
