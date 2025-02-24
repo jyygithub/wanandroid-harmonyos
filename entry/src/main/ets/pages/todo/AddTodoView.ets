@@ -1,6 +1,7 @@
 import { MyStorage } from "../../models/Storage";
 import { PersistenceV2 } from "@kit.ArkUI";
 import AddTodoViewModel from "../../viewmodels/AddTodoViewModel";
+import { DateUtils } from "../../utils/DateUtils";
 
 @Builder
 export function AddTodoViewBuilder(name: string, param: Object) {
@@ -21,7 +22,8 @@ struct AddTodoView {
     NavDestination() {
 
       Column({ space: 20 }) {
-        Text(this.currentDate.toDateString()).backgroundColor($r('app.color.press'))
+        Text(DateUtils.formatDate(this.currentDate))
+          .backgroundColor($r('app.color.press'))
           .width('100%')
           .padding({
             top: 10,
@@ -30,6 +32,18 @@ struct AddTodoView {
             right: 16
           })
           .borderRadius(16)
+          .onClick(() => {
+            this.getUIContext().showDatePickerDialog({
+              start: new Date(),
+              end: new Date("2050-12-31"),
+              selected: new Date(),
+              lunarSwitch: false,
+              showTime: false,
+              onDateAccept: (value: Date) => {
+                this.currentDate = value
+              },
+            })
+          })
         TextInput({ placeholder: "待办名称..." })
           .onChange((value) => {
             this.title = value
@@ -55,7 +69,7 @@ struct AddTodoView {
       value: '提交',
       icon: $r('sys.media.ohos_ic_public_ok'),
       action: () => {
-        this.viewModel.addTodo(this.title, this.content, this.currentDate.toDateString(), this.storage.cookies)
+        this.viewModel.addTodo(this.title, this.content, DateUtils.formatDate(this.currentDate), this.storage.cookies)
       }
     }])
     .onReady((context: NavDestinationContext) => {
