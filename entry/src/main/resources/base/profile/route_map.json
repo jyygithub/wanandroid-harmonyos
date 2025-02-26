@@ -129,6 +129,11 @@
       "name": "EditCollectArticleUrlView",
       "pageSourceFile": "src/main/ets/pages/user/collect/EditCollectArticleUrlView.ets",
       "buildFunction": "EditCollectArticleUrlViewBuilder"
+    },
+    {
+      "name": "EditTodoView",
+      "pageSourceFile": "src/main/ets/pages/todo/EditTodoView.ets",
+      "buildFunction": "EditTodoViewBuilder"
     }
   ]
 }
