@@ -2,6 +2,8 @@ import { MyStorage } from "../../models/Storage";
 import { PersistenceV2 } from "@kit.ArkUI";
 import AddTodoViewModel from "../../viewmodels/AddTodoViewModel";
 import { DateUtils } from "../../utils/DateUtils";
+import RouterPaths from "../../constants/RouterPaths";
+import Todo from "../../models/Todo";
 
 @Builder
 export function EditTodoViewBuilder(name: string, param: Object) {
@@ -44,12 +46,12 @@ struct EditTodoView {
               },
             })
           })
-        TextInput({ placeholder: "待办名称..." })
+        TextInput({ placeholder: "待办名称...", text: this.title })
           .onChange((value) => {
             this.title = value
           })
 
-        TextArea({ placeholder: "待办明细..." })
+        TextArea({ placeholder: "待办明细...", text: this.content })
           .height(500)
           .onChange((value) => {
             this.content = value
@@ -74,6 +76,10 @@ struct EditTodoView {
     }])
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
+      const todo = this.pageInfos.getParamByName(RouterPaths.EditTodoView).pop() as Todo
+      this.title = todo.title
+      this.content = todo.content
+      this.currentDate = new Date(todo.dateStr)
     })
   }
 }

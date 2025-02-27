@@ -31,7 +31,7 @@ export struct DoneTodoListView {
       // 构建尾端滑出组件
       Button("编辑")
         .onClick(() => {
-
+          this.pageInfos.pushPathByName(RouterPaths.EditTodoView, item)
         })
     }
   }
