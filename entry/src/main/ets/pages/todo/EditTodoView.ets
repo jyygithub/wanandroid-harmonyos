@@ -4,6 +4,7 @@ import AddTodoViewModel from "../../viewmodels/AddTodoViewModel";
 import { DateUtils } from "../../utils/DateUtils";
 import RouterPaths from "../../constants/RouterPaths";
 import Todo from "../../models/Todo";
+import EditTodoViewModel from "../../viewmodels/EditTodoViewModel";
 
 @Builder
 export function EditTodoViewBuilder(name: string, param: Object) {
@@ -15,9 +16,10 @@ export function EditTodoViewBuilder(name: string, param: Object) {
 struct EditTodoView {
   pageInfos: NavPathStack = new NavPathStack();
   @Local storage: MyStorage = PersistenceV2.connect(MyStorage, () => new MyStorage())!;
-  @Local viewModel: AddTodoViewModel = new AddTodoViewModel();
+  @Local viewModel: EditTodoViewModel = new EditTodoViewModel();
   @Local title: string = ''
   @Local content: string = ''
+  @Local todoId: number = 0
   @Local currentDate: Date = new Date()
 
   build() {
@@ -71,7 +73,8 @@ struct EditTodoView {
       value: '提交',
       icon: $r('sys.media.ohos_ic_public_ok'),
       action: () => {
-        this.viewModel.addTodo(this.title, this.content, DateUtils.formatDate(this.currentDate), this.storage.cookies)
+        this.viewModel.editTodo(this.todoId, this.title, this.content, DateUtils.formatDate(this.currentDate),
+          this.storage.cookies)
       }
     }])
     .onReady((context: NavDestinationContext) => {
@@ -79,6 +82,7 @@ struct EditTodoView {
       const todo = this.pageInfos.getParamByName(RouterPaths.EditTodoView).pop() as Todo
       this.title = todo.title
       this.content = todo.content
+      this.todoId = todo.id
       this.currentDate = new Date(todo.dateStr)
     })
   }

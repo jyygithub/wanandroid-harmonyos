@@ -1,11 +1,12 @@
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import Todo from '../models/Todo';
 
 @ObservedV2
-export default class AddTodoViewModel {
+export default class EditTodoViewModel {
 
-  addTodo(title: string, content: string, date: String, cookies: string) {
-    const getURL = `https://www.wanandroid.com/lg/todo/add/json`;
+  editTodo(id: number, title: string, content: string, date: String, cookies: string) {
+    const getURL = `https://www.wanandroid.com/lg/todo/update/${id}/json`;
     const params = `title=${title}&content=${content}&date=${date}`
     const session = rcp.createSession({
       headers: {
