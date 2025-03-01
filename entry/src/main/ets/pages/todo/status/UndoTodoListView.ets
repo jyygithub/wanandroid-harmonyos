@@ -21,6 +21,11 @@ export struct UndoTodoListView {
 
     Row() {
       // 构建尾端滑出组件
+      Button("已完成")
+        .onClick(() => {
+          this.viewModel.updateStatus(item.id, this.storage.cookies)
+        })
+      // 构建尾端滑出组件
       Button("删除")
         .onClick(() => {
           this.viewModel.deleteTodo(item.id, this.storage.cookies)

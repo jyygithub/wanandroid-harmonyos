@@ -51,4 +51,23 @@ export default class DoneTodoListViewModel {
       session.close()
     });
   }
+
+  updateStatus(id: number, cookies: string) {
+    const getURL = `https://www.wanandroid.com/lg/todo/done/${id}/json`;
+    const session = rcp.createSession({
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      cookies: {
+        "cookies": cookies
+      }
+    });
+    session.post(getURL, "status=0").then((response) => {
+      console.info(`Response succeeded: ${JSON.stringify(response)}`);
+    }).catch((err: BusinessError) => {
+      console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
+    }).finally(() => {
+      session.close()
+    });
+  }
 }
