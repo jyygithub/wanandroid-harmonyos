@@ -1,5 +1,6 @@
 import { CourseView } from './index/CourseView';
 import { ExploreView } from './index/ExploreView';
+import { HarmonyView } from './index/HarmonyView';
 import { HomeView } from './index/HomeView';
 import { MineView } from './index/MineView';
 
@@ -37,7 +38,7 @@ struct Index {
         .tabBar(this.tabBuilder('探索', 1, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
         TabContent() {
-
+          HarmonyView({ pageInfos: this.pageInfos })
         }
         .tabBar(this.tabBuilder('鸿蒙', 2, $r('app.media.app_icon'), $r('app.media.app_icon')))
 
