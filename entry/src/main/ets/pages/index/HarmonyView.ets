@@ -14,18 +14,49 @@ export struct HarmonyView {
     this.viewModel.fetchData()
   }
 
+  @Builder
+  head(name: string) {
+    Text(name)
+  }
+
   build() {
     NavDestination() {
       Refresh({ refreshing: this.viewModel.isRefreshing }) {
         List() {
-          ForEach(this.viewModel.articles, (item: Article) => {
-            ListItem() {
-              ArticleRow({ article: item })
-            }
-            .onClick(() => {
-              this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
+
+          ListItemGroup({ header: this.head("工具") }) {
+            ForEach(this.viewModel.data?.tools.articleList, (item: Article) => {
+              ListItem() {
+                ArticleRow({ article: item })
+              }
+              .onClick(() => {
+                this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
+              })
             })
-          })
+          }
+
+          ListItemGroup({ header: this.head("链接") }) {
+            ForEach(this.viewModel.data?.links.articleList, (item: Article) => {
+              ListItem() {
+                ArticleRow({ article: item })
+              }
+              .onClick(() => {
+                this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
+              })
+            })
+          }
+
+          ListItemGroup({ header: this.head("开源库") }) {
+            ForEach(this.viewModel.data?.open_sources.articleList, (item: Article) => {
+              ListItem() {
+                ArticleRow({ article: item })
+              }
+              .onClick(() => {
+                this.pageInfos.pushPathByName(RouterPaths.ArticleView, item)
+              })
+            })
+          }
+
         }
         .divider({ strokeWidth: 1 })
       }
