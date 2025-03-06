@@ -11,6 +11,7 @@ export default class HarmonyViewModel {
   fetchData() {
     const getURL = `https://wanandroid.com/harmony/index/json`;
     const session = rcp.createSession();
+    this.isRefreshing = true
     session.get(getURL).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
       let result = JSON.parse(JSON.stringify(response)) as ApiRepo<Harmony>
@@ -18,6 +19,7 @@ export default class HarmonyViewModel {
     }).catch((err: BusinessError) => {
       console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
     }).finally(() => {
+      this.isRefreshing = false
       session.close()
     });
   }
