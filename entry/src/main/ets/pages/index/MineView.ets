@@ -35,7 +35,7 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
-            SymbolGlyph($r('sys.symbol.share'))
+            SymbolGlyph($r('sys.symbol.calendar'))
               .fontSize(20)
             Text("我的待办").layoutWeight(1)
           }
@@ -67,7 +67,7 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
-            SymbolGlyph($r('sys.symbol.share'))
+            SymbolGlyph($r('sys.symbol.star'))
               .fontSize(20)
             Text("我的收藏").layoutWeight(1)
           }
@@ -81,7 +81,7 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
-            SymbolGlyph($r('sys.symbol.share'))
+            SymbolGlyph($r('sys.symbol.arrow_counterclockwise_clock'))
               .fontSize(20)
             Text("浏览历史").layoutWeight(1)
           }
@@ -96,7 +96,7 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
-            SymbolGlyph($r('sys.symbol.timer'))
+            SymbolGlyph($r('sys.symbol.drop_bottomrighthalf_inset_filled'))
               .fontSize(20)
             Text("知识体系").layoutWeight(1)
           }
@@ -112,7 +112,7 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
-            SymbolGlyph($r('sys.symbol.timer'))
+            SymbolGlyph($r('sys.symbol.list_square'))
               .fontSize(20)
             Text("项目分类").layoutWeight(1)
           }
@@ -128,7 +128,7 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
-            SymbolGlyph($r('sys.symbol.list_bullet_circle'))
+            SymbolGlyph($r('sys.symbol.nearlink'))
               .fontSize(20)
             Text("我的积分").layoutWeight(1)
           }
@@ -144,7 +144,7 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
-            SymbolGlyph($r('sys.symbol.list_bullet_circle'))
+            SymbolGlyph($r('sys.symbol.satellite_map'))
               .fontSize(20)
             Text("积分排行榜").layoutWeight(1)
           }
@@ -160,7 +160,7 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
-            SymbolGlyph($r('sys.symbol.list_bullet_circle'))
+            SymbolGlyph($r('sys.symbol.smallcircle_filled_circle'))
               .fontSize(20)
             Text("常用工具").layoutWeight(1)
           }
@@ -176,7 +176,7 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
-            SymbolGlyph($r('sys.symbol.list_bullet_circle'))
+            SymbolGlyph($r('sys.symbol.gearshape'))
               .fontSize(20)
             Text("设置").layoutWeight(1)
           }
