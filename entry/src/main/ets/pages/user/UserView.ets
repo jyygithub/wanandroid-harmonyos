@@ -29,7 +29,11 @@ struct UserView {
             Image($r('app.media.startIcon'))
               .width(60)
               .height(60)
-          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
+          }
+          .backgroundColor($r('app.color.row'))
+          .width('100%')
+          .padding(12)
+          .borderRadius(10)
         }
 
         ListItem() {
@@ -37,7 +41,12 @@ struct UserView {
             Text("昵称")
             Blank()
             Text(this.viewModel.user?.userInfo?.nickname)
-          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
+          }
+          .backgroundColor($r('app.color.row'))
+          .width('100%')
+          .padding(12)
+          .margin({ top: 10 })
+          .borderRadius({ topRight: 10, topLeft: 10 })
         }
 
         ListItem() {
@@ -45,7 +54,7 @@ struct UserView {
             Text("邮箱")
             Blank()
             Text(this.viewModel.user?.userInfo?.email)
-          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
+          }.backgroundColor($r('app.color.row')).width('100%').padding(12)
         }
 
         ListItem() {
@@ -53,13 +62,19 @@ struct UserView {
             Text("用户名")
             Blank()
             Text(this.viewModel.user?.userInfo?.username)
-          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
+          }.backgroundColor($r('app.color.row')).width('100%').padding(12)
+          .borderRadius({ bottomLeft: 10, bottomRight: 10 })
         }
 
         ListItem() {
           Row() {
             Text("账号安全")
-          }.backgroundColor($r('app.color.row')).width('100%').padding(8)
+          }
+          .backgroundColor($r('app.color.row'))
+          .width('100%')
+          .padding(12)
+          .borderRadius(10)
+          .margin({ top: 10 })
         }
 
         ListItem() {
@@ -69,6 +84,7 @@ struct UserView {
               this.pageInfos.pop()
             })
             .width('100%')
+            .margin({ top: 10 })
         }
       }
       .padding({ left: 16, right: 16 })
