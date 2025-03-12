@@ -134,6 +134,11 @@
       "name": "EditTodoView",
       "pageSourceFile": "src/main/ets/pages/todo/EditTodoView.ets",
       "buildFunction": "EditTodoViewBuilder"
+    },
+    {
+      "name": "PasswordView",
+      "pageSourceFile": "src/main/ets/pages/user/PasswordView.ets",
+      "buildFunction": "PasswordViewBuilder"
     }
   ]
 }
