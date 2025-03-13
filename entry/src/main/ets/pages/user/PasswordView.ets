@@ -12,18 +12,14 @@ struct PasswordView {
     NavDestination() {
 
       Column({ space: 20 }) {
-        Blank()
-        Image($r('app.media.startIcon'))
-          .width(80)
-          .height(80)
-        Text($r('app.string.app_name'))
-          .fontWeight(FontWeight.Bold)
-        Text("当前版本：0.1")
-        Blank()
-        Text('Github开源项目')
-        Blank().height(20)
+
+        TextInput({ placeholder: "输入原密码..." })
+        TextInput({ placeholder: "输入新密码..." })
+        TextInput({ placeholder: "再次输入新密码..." })
+        Button("保存").width('100%')
       }
       .height('100%')
+      .padding({ left: 16, right: 16 })
 
     }
     .height('100%')

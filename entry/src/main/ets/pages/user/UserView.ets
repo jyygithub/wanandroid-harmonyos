@@ -1,6 +1,7 @@
 import { MyStorage } from "../../models/Storage";
 import UserViewModel from "../../viewmodels/UserViewModel";
 import { PersistenceV2 } from "@kit.ArkUI";
+import RouterPaths from "../../constants/RouterPaths";
 
 @Builder
 export function UserViewBuilder(name: string, param: Object) {
@@ -75,7 +76,9 @@ struct UserView {
           .padding(12)
           .borderRadius(10)
           .margin({ top: 10 })
-        }
+        }.onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.PasswordView, null)
+        })
 
         ListItem() {
           Button("退出登录")
