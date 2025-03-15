@@ -1,12 +1,18 @@
 import RouterPaths from "../../constants/RouterPaths";
 import { MyStorage } from "../../models/Storage";
 import { PersistenceV2 } from "@kit.ArkUI";
+import MineViewModel from "../../viewmodels/MineViewModel";
 
 @Preview
 @ComponentV2
 export struct MineView {
   @Local storage: MyStorage = PersistenceV2.connect(MyStorage, () => new MyStorage())!;
   @Require @Param pageInfos: NavPathStack;
+  @Local viewModel: MineViewModel = new MineViewModel()
+
+  aboutToAppear(): void {
+    this.viewModel.getMyCoin(this.storage.cookies)
+  }
 
   build() {
 
@@ -130,7 +136,9 @@ export struct MineView {
           Row({ space: 12 }) {
             SymbolGlyph($r('sys.symbol.nearlink'))
               .fontSize(20)
-            Text("我的积分").layoutWeight(1)
+            Text("我的积分")
+            Blank()
+            Text(`${this.viewModel.coininfo?.coinCount}`)
           }
           .justifyContent(FlexAlign.Center)
           .width('100%')

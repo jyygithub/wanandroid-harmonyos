@@ -1,22 +1,24 @@
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import Coin from '../models/Coin';
+import ApiRepo from '../models/ApiRepo';
 
 @ObservedV2
-export default class PasswordViewModel {
+export default class MineViewModel {
+  @Trace coininfo: Coin | undefined
 
-  changePassword(oldPassword: string, newPassword1: string, newPassword2: string, cookies: string) {
-    const getURL = `https://www.wanandroid.com/user/login`;
+  getMyCoin(cookies: string) {
+    const getURL = `https://www.wanandroid.com/lg/coin/userinfo/json`;
     const session = rcp.createSession({
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
       cookies: {
         "cookies": cookies
       }
     });
-    session.post(getURL, `oldPassword=${oldPassword}&newPassword1=${newPassword1}&newPassword2=${newPassword2}`).then((response) => {
+    session.get(getURL).then((response) => {
       console.info(`Response succeeded: ${JSON.stringify(response.cookies)}`);
       console.info(`Response succeeded: ${JSON.stringify(response)}`);
+      let result = JSON.parse(JSON.stringify(response)) as ApiRepo<Coin>
+      this.coininfo = result.data
     }).catch((err: BusinessError) => {
       console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
     }).finally(() => {
