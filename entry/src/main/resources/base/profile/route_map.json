@@ -139,6 +139,11 @@
       "name": "PasswordView",
       "pageSourceFile": "src/main/ets/pages/user/PasswordView.ets",
       "buildFunction": "PasswordViewBuilder"
+    },
+    {
+      "name": "WendaArticlesView",
+      "pageSourceFile": "src/main/ets/pages/article/WendaArticlesView.ets",
+      "buildFunction": "WendaArticlesViewBuilder"
     }
   ]
 }
