@@ -134,6 +134,22 @@ export struct MineView {
 
         ListItem() {
           Row({ space: 12 }) {
+            SymbolGlyph($r('sys.symbol.smallcircle_filled_circle'))
+              .fontSize(20)
+            Text("每日一问").layoutWeight(1)
+          }
+          .justifyContent(FlexAlign.Center)
+          .width('100%')
+          .padding(12)
+          .borderRadius(12)
+          .backgroundColor(Color.White)
+        }.margin({ top: 20 })
+        .onClick(() => {
+          this.pageInfos.pushPathByName(RouterPaths.WendaArticlesView, null)
+        })
+
+        ListItem() {
+          Row({ space: 12 }) {
             SymbolGlyph($r('sys.symbol.nearlink'))
               .fontSize(20)
             Text("我的积分")

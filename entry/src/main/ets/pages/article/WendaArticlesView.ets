@@ -42,12 +42,9 @@ export struct WendaArticlesView {
     .backgroundColor($r('app.color.page'))
     .width('100%')
     .height('100%')
-    .title(this.title)
+    .title("每日一问")
     .onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
-      let course = this.pageInfos.getParamByName(RouterPaths.ProjectArticlesView).pop() as Course
-      this.title = course.name
-      this.viewModel.fetchArticles(0, course.id)
     })
   }
 }
