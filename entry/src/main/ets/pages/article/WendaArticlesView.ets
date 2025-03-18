@@ -5,6 +5,7 @@ import CourseArticlesViewModel from "../../viewmodels/CourseArticlesViewModel";
 import ProjectArticlesViewModel from "../../viewmodels/ProjectArticlesViewModel";
 import ProjectsViewModel from "../../viewmodels/ProjectsViewModel";
 import TreeArticlesViewModel from "../../viewmodels/TreeArticlesViewModel";
+import WendaViewModel from "../../viewmodels/WendaViewModel";
 import WxArticlesViewModel from "../../viewmodels/WxArticlesViewModel";
 import { ArticleRow } from "../../views/ArticleRow";
 
@@ -16,9 +17,12 @@ export function WendaArticlesViewBuilder(name: string, param: Object) {
 @Preview
 @ComponentV2
 export struct WendaArticlesView {
-  @Local viewModel: ProjectArticlesViewModel = new ProjectArticlesViewModel();
+  @Local viewModel: WendaViewModel = new WendaViewModel();
   pageInfos: NavPathStack = new NavPathStack();
-  @Local title: string = ''
+
+  aboutToAppear(): void {
+    this.viewModel.fetchArticles(1)
+  }
 
   build() {
     NavDestination() {
@@ -36,7 +40,7 @@ export struct WendaArticlesView {
         .divider({ strokeWidth: 1 })
       }
       .onRefreshing(() => {
-
+        this.viewModel.fetchArticles(1)
       })
     }
     .backgroundColor($r('app.color.page'))
