@@ -144,6 +144,11 @@
       "name": "WendaArticlesView",
       "pageSourceFile": "src/main/ets/pages/article/WendaArticlesView.ets",
       "buildFunction": "WendaArticlesViewBuilder"
+    },
+    {
+      "name": "WendaCommentsView",
+      "pageSourceFile": "src/main/ets/pages/article/WendaCommentsView.ets",
+      "buildFunction": "WendaCommentsViewBuilder"
     }
   ]
 }
