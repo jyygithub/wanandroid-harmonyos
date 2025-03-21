@@ -29,4 +29,5 @@ export default class RouterPaths {
   static readonly PasswordView = "PasswordView";
   static readonly WendaArticlesView = "WendaArticlesView";
   static readonly WendaCommentsView = "WendaCommentsView";
+  static readonly MessageView = "MessageView";
 }
