@@ -237,5 +237,12 @@ export struct MineView {
     }
     .title("我的")
     .backgroundColor($r('app.color.page'))
+    .menus([{
+      value: '消息',
+      icon: $r('sys.media.media_sound'),
+      action: () => {
+        this.pageInfos.pushPathByName(RouterPaths.MessageView, null)
+      }
+    }])
   }
 }
