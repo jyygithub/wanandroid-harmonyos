@@ -1,3 +1,6 @@
+import { ReadedMessageView } from "./message/ReadedMessageView";
+import { UnreadMessageView } from "./message/UnreadMessageView";
+
 @Builder
 export function MessageViewBuilder(name: string, param: Object) {
   MessageView()
@@ -10,21 +13,16 @@ struct MessageView {
 
   build() {
     NavDestination() {
+      Tabs({ barPosition: BarPosition.Start }) {
+        TabContent() {
+          ReadedMessageView({ pageInfos: this.pageInfos })
+        }.tabBar("已读")
 
-      Column({ space: 20 }) {
-        Blank()
-        Image($r('app.media.startIcon'))
-          .width(80)
-          .height(80)
-        Text($r('app.string.app_name'))
-          .fontWeight(FontWeight.Bold)
-        Text("当前版本：0.1")
-        Blank()
-        Text('Github开源项目')
-        Blank().height(20)
+        TabContent() {
+          UnreadMessageView({ pageInfos: this.pageInfos })
+        }.tabBar("未读")
+
       }
-      .height('100%')
-
     }
     .height('100%')
     .width('100%')
