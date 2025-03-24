@@ -1,32 +1,42 @@
-import Course from "../../models/Course"
-import CourseViewModel from "../../viewmodels/CourseViewModel"
-import { CourseAricleView } from "../article/CourseAricleView"
+import { MyStorage } from "../../../models/Storage";
+import { PersistenceV2 } from "@kit.ArkUI";
+import ReadedMessageViewModel from "../../../viewmodels/ReadedMessageViewModel";
+import Message from "../../../models/Message";
 
 @ComponentV2
 export struct ReadedMessageView {
-  @Local viewModel: CourseViewModel = new CourseViewModel()
+  @Local storage: MyStorage = PersistenceV2.connect(MyStorage, () => new MyStorage())!;
+  @Local viewModel: ReadedMessageViewModel = new ReadedMessageViewModel()
   @Require @Param pageInfos: NavPathStack;
 
   aboutToAppear(): void {
-    this.viewModel.fetchCourses()
+    this.viewModel.fetchCoins(1,this.storage.cookies)
   }
 
   build() {
     NavDestination() {
-      Column() {
-        Tabs({ barPosition: BarPosition.Start }) {
-          ForEach(this.viewModel.courses, (item: Course) => {
-            TabContent() {
-              CourseAricleView({ pageInfos: this.pageInfos, courseID: item.id })
-            }.tabBar(item.name)
+      Refresh({ refreshing: this.viewModel.isRefreshing }) {
+        List() {
+          ForEach(this.viewModel.messages, (item: Message) => {
+            ListItem() {
+              Column() {
+                Text(item.fromUser)
+                Text(item.niceDate)
+                Text(item.title)
+                Text(item.message)
+              }.width('100%')
+            }
           })
         }
-        .barMode(BarMode.Scrollable)
+        .width('100%')
+        .divider({ strokeWidth: 1 })
       }
+      .onRefreshing(() => {
+        this.viewModel.fetchCoins(1,this.storage.cookies)
+      })
     }
     .height('100%')
     .width('100%')
-    .title('教程')
     .backgroundColor($r('app.color.page'))
   }
 }
