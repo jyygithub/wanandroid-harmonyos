@@ -11,7 +11,7 @@ struct Index {
   pageInfos: NavPathStack = new NavPathStack();
 
   @Builder
-  tabBuilder(title: string, targetIndex: number, selectedImg: Resource, normalImg: Resource) {
+  tabBuilder(title: string, targetIndex: number, normalImg: Resource, selectedImg: Resource) {
     Column({ space: 4 }) {
       Image(this.currentIndex === targetIndex ? selectedImg : normalImg)
         .size({ width: 25, height: 25 })
@@ -30,31 +30,36 @@ struct Index {
         TabContent() {
           HomeView({ pageInfos: this.pageInfos })
         }
-        .tabBar(this.tabBuilder('首页', 0, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        .tabBar(this.tabBuilder('首页', 0, $r('app.media.ic_public_home'), $r('app.media.ic_public_home_filled')))
 
         TabContent() {
           ExploreView({ pageInfos: this.pageInfos })
         }
-        .tabBar(this.tabBuilder('探索', 1, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        .tabBar(this.tabBuilder('探索', 1, $r('app.media.ic_gallery_discover'),
+          $r('app.media.ic_gallery_discover_filled')))
 
         TabContent() {
           HarmonyView({ pageInfos: this.pageInfos })
         }
-        .tabBar(this.tabBuilder('鸿蒙', 2, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        .tabBar(this.tabBuilder('鸿蒙', 2, $r('app.media.ic_public_fast'), $r('app.media.ic_public_fast_filled')))
 
         TabContent() {
           CourseView({ pageInfos: this.pageInfos })
         }
-        .tabBar(this.tabBuilder('教程', 3, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        .tabBar(this.tabBuilder('教程', 3, $r('app.media.ic_public_copy'), $r('app.media.ic_public_copy_filled')))
 
         TabContent() {
           MineView({ pageInfos: this.pageInfos })
         }
-        .tabBar(this.tabBuilder('我的', 4, $r('app.media.app_icon'), $r('app.media.app_icon')))
+        .tabBar(this.tabBuilder('我的', 4, $r('app.media.ic_public_contacts'),
+          $r('app.media.ic_public_contacts_filled')))
       }
       .barBackgroundColor($r('app.color.page'))
       .height('100%')
       .width('100%')
+      .onChange((index) => {
+        this.currentIndex = index
+      })
     }
     .hideTitleBar(true)
   }
